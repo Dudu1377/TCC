@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=League+Gothic&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="./Img/Green_Modern_Marketing_Logo-removebg-preview.png" alt="Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#container">Home</a></li>
+                <li><a href="#Why">Why ?</a></li>
+                <li><a href="#Where">Locations</a></li>
+                <li><a href="#AboutUs">About us</a></li>
+            </ul>
+            <div class="Login">
+                <img src="./img/Login sem fundo.png" alt="Login" id="Login">
+            </div>
+        </nav>
+    </header>
+    <section class="container" id="container">
+        <div class="pop-up-container">
+            <div class="pop-up-create" id="create-account-form">
+                <form>
+                    <div class="close-pop-up close-create" id="close-pop-up">
+                        &times;
+                    </div>
+                    <h1>Create an Account</h1>
+                    <div class="input-name active" id="login-form">
+                        <input placeholder="First name" type="text" id="First_name" required>
+                        <input placeholder="Last name" type="text" id="Last_name" required>
+                    </div>
+                    <div class="input">
+                        <input placeholder="Email" type="email" required>
+                    </div>
+                    <div class="input">
+                        <input placeholder="Password" type="password" id="password" class="password" required>
+                        <img width="20" height="20" src="./Img/olho.png" id="togglePassword" class="togglePassword">
+                        <a href="#">Forgot my password</a>
+                        <button type="submit" class="submit-button">Submit</button>
+                    </div>
+                    <div class="Container-Sing-in">
+                        <div class="Sing-in">
+                            Already have an Account ?
+                            <a href="#" onclick="login()">Sing-in</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- inicio do form de registrar -->
+            <div class="pop-up-Sing-in" id="sing-in-form" style="display: none;">
+                <form>
+                    <div class="close-pop-up close-sing-in" id="close-pop-up">
+                        &times;
+                    </div>
+                    <h1>Sign in</h1>
+                    <div class="input">
+                        <input placeholder="Username or Email" type="text" id="UsernameOrEmail" required>
+                    </div>
+                    <div class="input">
+                        <input placeholder="Password" type="password" id="password" class="password" required>
+                        <img width="20" height="20" src="./Img/olho.png" id="togglePassword" class="togglePassword">
+                        <a href="#">Forgot my password</a>
+                        <button type="submit" class="submit-button">Submit</button>
+                    </div>
+                    <div class="Container-Sing-in">
+                        <div class="create-an-account">
+                            Dont have an Account ?
+                            <a href="#" onclick="create()">create an account</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="list">
+            <div class="item active">
+                <div class="icon-img">
+                    <img src="./Img/donation.png">
+                </div>
+                <div class="content">
+                    <h2>
+                        Why Sharing
+                    </h2>
+                    <p class="description">
+                        <!-- Dependendo da quantidade de linhas dessa descrição tem q mudar o 'maxwidth' da description para ficar formatado certinho -->
+                        Contruimos esse site com o objetivo de diminuir a taxa de desperdicio de comidas, principalmente
+                        focado em restaurantes que produzem muita comida e acabam não consumindo toda ela quando acaba o
+                        expediente.
+                    </p>
+                    <button class="information"><a href="WhySharing.html">
+                            Saiba Mais
+                        </a>
+                    </button>
+                </div>
+            </div>
+            <div class="item">
+                <div class="icon-img">
+                    <img src="./Img/map.png">
+                </div>
+                <div class="content">
+                    <h2>
+                        Locations
+                    </h2>
+                    <p class="description">
+                        <!-- Dependendo da quantidade de linhas dessa descrição tem q mudar o 'maxwidth' da description para ficar formatado certinho -->
+                        Aqui disponibilizamos um mapa com cedes que podem receber a sua comida não consumida pelo final
+                        do dia, centro de doações e outros lugares que podem reutiliza-lá para um bem maior evitando o
+                        desperdício.
+                    </p>
+                    <button class="information"><a href="">
+                            Saiba Mais
+                        </a>
+                    </button>
+                </div>
+            </div>
+            <div class="item">
+                <div class="icon-img">
+                    <img src="./Img/Us.png">
+                </div>
+                <div class="content">
+                    <h2>
+                        About Us
+                    </h2>
+                    <p class="description">
+                        <!-- Dependendo da quantidade de linhas dessa descrição tem q mudar o 'maxwidth' da description para ficar formatado certinho -->
+                        Prazer, somos o Eduardo e o Gabriel dois estudantes do Cemep de 17 anos. Nascemos em Campinas e
+                        Paulinia respectivamente, estamos no terceiro ano do ensino medio, e esse é nosso Trabalho de
+                        Conclusão de Curso
+                    </p>
+                    <button class="information"><a href="AboutUs.html">
+                            Saiba Mais
+                        </a>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="arrows">
+            <button id="prev"><img src="./Img/arrow.png" alt="Seta Direita"></button>
+            <button id="next"><img src="./Img/arrow.png" alt="Seta Esquerda"></button>
+        </div>
+        <div class="indicators">
+            <div class="number">01</div>
+            <ul>
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </section>
+    <section class="Why" id="Why">
+        <h2 class="Title">Why <span>Sharing </span></h2>
+        <div class="box-container">
+            <div class="box-Statistics">
+                <div class="box-img">
+                    <img src="./Img/Comida.png" alt="Why-Sharing">
+                </div>
+                <div class="content">
+                    <h2>Situation</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo in tempore, nostrum vel perferendis
+                        iure delectus obcaecati praesentium expedita fugiat enim, suscipit consectetur aspernatur
+                        molestias ut excepturi nihil assumenda voluptate!</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus officia tempore
+                        asperiores natus accusamus? Repellendus veniam officia ut architecto quos harum fugiat molestias
+                        dolore magni. Minima, quod! Numquam, accusamus soluta?</p>
+                </div>
+            </div>
+            <div class="box-Goal">
+                <div class="box-img">
+                    <img src="./Img/Comida.png" alt="Why-Sharing">
+                </div>
+                <div class="content">
+                    <h2>Our Goal</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo in tempore, nostrum vel perferendis
+                        iure delectus obcaecati praesentium expedita fugiat enim, suscipit consectetur aspernatur
+                        molestias ut excepturi nihil assumenda voluptate!</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus officia tempore
+                        asperiores natus accusamus? Repellendus veniam officia ut architecto quos harum fugiat molestias
+                        dolore magni. Minima, quod! Numquam, accusamus soluta?</p>
+                </div>
+            </div>
+            <div class="box-SLAOQ">
+                <div class="box-img">
+                    <img src="./Img/Comida.png" alt="Why-Sharing">
+                </div>
+                <div class="content">
+                    <h2>Our Goal</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo in tempore, nostrum vel perferendis
+                        iure delectus obcaecati praesentium expedita fugiat enim, suscipit consectetur aspernatur
+                        molestias ut excepturi nihil assumenda voluptate!</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus officia tempore
+                        asperiores natus accusamus? Repellendus veniam officia ut architecto quos harum fugiat molestias
+                        dolore magni. Minima, quod! Numquam, accusamus soluta?</p>
+                </div>
+            </div>
+            <div class="box-SLAOQ2">
+                <div class="box-img">
+                    <img src="./Img/Comida.png" alt="Why-Sharing">
+                </div>
+                <div class="content">
+                    <h2>Our Goal</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo in tempore, nostrum vel perferendis
+                        iure delectus obcaecati praesentium expedita fugiat enim, suscipit consectetur aspernatur
+                        molestias ut excepturi nihil assumenda voluptate!</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus officia tempore
+                        asperiores natus accusamus? Repellendus veniam officia ut architecto quos harum fugiat molestias
+                        dolore magni. Minima, quod! Numquam, accusamus soluta?</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="Where" id="Where">
+        <h2 class="Title"><span>Locals to </span>Share</h2>
+        <div class="container-map1">
+            <iframe class="map1"
+                src="https://www.google.com/maps/d/u/0/embed?mid=15yoC53L4b0nFnJiUSlWTO-5lCC1XNxg&ehbc=2E312F&noprof=1"
+                width="640" height="480"></iframe>
+        </div>
+        <div class="container-map2">
+            <iframe class="map2"
+                src="https://www.google.com/maps/d/u/0/embed?mid=1dWjcxmArgfHbfAG2vGaGlbqr-PkSxsA&ehbc=2E312F&noprof=1"
+                width="640" height="480"></iframe>
+        </div>
+    </section>
+    <section class="Us" id="Us">
+        <h2 class="Title">About <span>Us</span></h2>
+        <div class="box-container">
+            <div class="box-img">
+                <h1 class="name">Eduardo de Toledo</h1>
+                <img class="Profile_pic_Du" src="./Img/Profile_Du2.jpeg">
+                <div class="social-icons">
+                    <a href="" target="_blank" class="icon instagram"><img src="./Img/Instagram.png" alt="Icon Instagram"></a>
+                <a href="" target="_blank" class="icon whatsapp"><img src="./Img/WhatsApp.png" alt="icon WhatsApp"></a>
+                <a href="" target="_blank" class="icon Linkedin"><img src="./Img/Linkedin.png" alt="icon Linkedin"></a>
+                </div>
+            </div>
+            <div class="box-img">
+                <h1 class="name">Eduardo de Toledo</h1>
+                <img class="Profile_pic_Du" src="./Img/Profile_Du.jpeg">
+                <div class="social-icons">
+                    <a href="" target="_blank" class="icon instagram"><img src="./Img/Instagram.png" alt="Icon Instagram"></a>
+                <a href="" target="_blank" class="icon whatsapp"><img src="./Img/WhatsApp.png" alt="icon WhatsApp"></a>
+                <a href="" target="_blank" class="icon Linkedin"><img src="./Img/Linkedin.png" alt="icon Linkedin"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="scripts.js"></script>
+</body>
+
+</html>
