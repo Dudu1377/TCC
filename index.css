@@ -185,20 +185,23 @@
 }*/
                                             /*CSS pagina normal*/
 .Donation{
-    font-weight: 500;
+    font-weight:bold;
     position: fixed;
     bottom: 50px;
     right: 50px;
     color: black;
-    padding: 20px;
-    border-radius: 30px;
+    padding: 20px 30px;
+    border-radius: 13px;
     cursor: pointer;
     z-index: 1;
     background-color: greenyellow;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 15px rgba(255, 68, 68, 0.3);
 }
 .Donation:hover{
-        background-color: rgb(114, 185, 8);
+    background-color: #a0252f;
+    transform: translateY(-8px);
+    box-shadow: 0 6px 20px rgba(255, 68, 68, 0.4);
     }
 a:visited {
     color: black;
@@ -252,11 +255,15 @@ nav {
 
 .Login img {
     width: 60px;
-    /* Tamanho do ícone de login */
     cursor: pointer;
-    /* Cursor de ponteiro */
     padding-bottom: 10px;
+    transition: transform 0.3s ease;
 }
+
+.Login img:hover {
+    transform: translateY(-4px);
+    width: 60px;
+}   
 
 .nav-links {
     display: flex;
