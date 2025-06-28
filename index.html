@@ -173,12 +173,93 @@
         <div class="Donation">
         Seja a Mudança
         </div>
-        <div class="Donation-form">
-            Faça a Diferença
-            <form>
+        <div class="DonorSelection" id="DonorSelection">
+            <label>
+            <h1>Selecione o tipo de doador</h1>
+            <input type="radio" name="donorType" value="Independent">
+            Doador Independente
+            </label>
+            <label>
+            <input type="radio" name="donorType" value="Company">
+            Empresa
+            </label>
+            <button id="NextButton">Próximo</button>
+        </div>
+        <div class="Donation-form1">
+            
+            <form id="donationCompanyInfo">
+                <h1>Formulario de doação de alimentos</h1>
+                <div class="close-pop-up close-donation" id="close-pop-up">
+                    &times;
+                </div>
+                <h2>Informações basicas do estabelecimento</h2>
+                <label for="establishmentName">Nome do estabelecimento:</label>
+                <input type="text" id="establishmentName" name="establishmentName" required>
 
+                <label for="CNPJ">CNPJ:</label>
+                <input type="text" id="CNPJ" name="CNPJ" required pattern="\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}" title="Formato: 00.000.000/0000-00">
+
+                <label for="address">Endereço completo:</label>
+                <input type="text" id="address" name="address" required>
+
+                <label for="phone">Telefone para contato:</label>
+                <input type="text" id="phone" name="phone" required>
+
+                <label for="email">Email corporativo:</label>
+                <input type="text" id="email" name="email" required>
             </form>
         </div>
+        <div class="Donation-form2">
+            <form id="donationCompanyInfo2">
+                <div class="close-pop-up close-donation" id="close-pop-up">
+                    &times;
+                </div>
+                <h2>Detalhes da doação</h2>
+                <label for="foodTypes">Tipo de alimento</label>
+                <select id="foodType" name="foodType" required>
+                    <option value="">Selecione</option>
+                    <option value="refeicoes_prontas">Refeições Prontas</option>
+                    <option value="ingredientes">Ingredientes</option>
+                    <option value="lanches">Lanches</option>
+                </select>
+                <label for="quantity">Quantidade estimada:</label>
+                <input type="number" id="quantity" name="quantity" placeholder="Kg" required>
+                <label for="preparationDate">Data de preparo:</label>
+                <input type="date" id="preparationDate" name="preparationDate" required>
+                <label for="expirationDate">Data de validade:</label>
+                <input type="date" id="expirationDate" name="expirationDate" required>
+                <label for="availabilityTime">Horario de disponibilidade:</label>
+                <input type="text" id="availabilityTime" name="availabilityTime" required>
+                <label for="conservationInstructions">Instruções de conservação:</label>
+                <input type="text" id="conservationInstructions" name="conservationInstructions" required>
+                <label for="especialObservations">Observações Especiais:</label>
+                <textarea type="text" id="especialObservations" name="especialObservations"></textarea>
+            </form>
+        </div>
+        <div class="Donation-form3">
+            <form id="donationCompanyInfo3">
+                <div class="close-pop-up close-donation" id="close-pop-up">
+                    &times;
+                </div>
+                <h2>Informações Logísticas</h2>
+                <label for="deliveryMode">Forma de entrega</label>
+                <select id="deliveryMode" name="deliveryMode" required>
+                    <option value="">Selecione</option>
+                    <option value="coleta">Coleta no Local</option>
+                    <option value="entrega">Entrega</option>
+                </select>
+                <label for="donationFrequency">Frequência da doação</label>
+                <select id="donationFrequency" name="donationFrequency" required>
+                    <option value="">Selecione</option>
+                    <option value="pontual">Pontual</option>
+                    <option value="semanal">Semanal</option>
+                    <option value="diaria">Diária</option>
+                </select>
+                <label for="equipmentNeeded">Equipamentos Necessários:</label>
+                <input type="text" id="equipmentNeeded" name="equipmentNeeded">
+                <button type="submit">Enviar Doação</button>
+            </form>
+        </div>  
     </section>
     <section class="Why" id="Why">
         <h2 class="Title">Why <span>Sharing </span></h2>
