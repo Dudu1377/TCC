@@ -1,4 +1,3 @@
-
 * {
     /*começa 'resetando a pagina'*/
     margin: 0;
@@ -171,26 +170,58 @@
 .create-an-account a {
     color: blue;
 }
-.no-scroll{
+
+.no-scroll {
     overflow: hidden;
 }
-#donationCompanyInfo, #donationCompanyInfo2, #donationCompanyInfo3{
+
+#donationCompanyInfo,
+#donationCompanyInfo2,
+#donationCompanyInfo3 {
     display: none;
 }
+
 label {
     display: block;
 }
-.containerDonation{
-    max-width: 600px;
-    padding: 20px; 
-    border-radius: 8px; 
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
-    background-color: #fff; 
-    margin: 0 auto; 
+
+#Donation {
     display: flex;
-    justify-content: center;    
+    /*Mudar isso para todo o section sumir e não ficar um vão sem nada*/
+}
+
+.containerDonation {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    /* None: não ativo - flex:ativo*/
+    justify-content: center;
     align-items: center;
-    transform: translateY(10%);
+    z-index: 1000;
+    opacity: 1000;
+    /*Mudar isso para aparecer o login*/
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.DonorSelection {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+        font-size: 40px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    label{
+        margin-bottom: 7px; /* Aumenta o espaçamento entre os labels */
+    }
 }
 /*.Sing-in{ //caso for usar botão para  o Sing-in e não só a escrita cm um link
     width: 60px;
@@ -200,9 +231,9 @@ label {
     background-color: #058105;
     cursor: pointer;
 }*/
-                                            /*CSS pagina normal*/
-.Donation{
-    font-weight:bold;
+/*CSS pagina normal*/
+.Donation {
+    font-weight: bold;
     position: fixed;
     bottom: 50px;
     right: 50px;
@@ -215,11 +246,13 @@ label {
     transition: all 0.3s ease;
     box-shadow: 0 10px 15px rgba(255, 68, 68, 0.3);
 }
-.Donation:hover{
+
+.Donation:hover {
     background-color: #a0252f;
     transform: translateY(-8px);
     box-shadow: 0 6px 20px rgba(255, 68, 68, 0.4);
-    }
+}
+
 a:visited {
     color: black;
 }
@@ -279,8 +312,8 @@ nav {
 
 .Login img:hover {
     transform: translateY(-4px);
-    width: 60px;    
-}   
+    width: 60px;
+}
 
 .nav-links {
     display: flex;
@@ -577,6 +610,7 @@ section {
 .Why {
     width: 100%;
     height: 100%;
+
     .Title {
         padding-top: 150px;
         padding-bottom: 20px;
@@ -599,7 +633,7 @@ section {
         /* Ocupa toda a largura disponível */
         max-width: 1000px;
         margin: 0 auto;
-        }
+    }
 
     .box-Statistics,
     .box-Goal,
@@ -622,11 +656,13 @@ section {
         height: 250px;
     }
 }
-.Where{
+
+.Where {
     display: flex;
     align-items: center;
     flex-direction: column;
     height: 100%;
+
     .Title {
         padding-top: 150px;
         padding-bottom: 20px;
@@ -640,8 +676,10 @@ section {
         color: white;
     }
 }
-.Us{
+
+.Us {
     height: 100%;
+
     .Title {
         padding-top: 150px;
         padding-bottom: 20px;
@@ -654,46 +692,52 @@ section {
     .Title span {
         color: white;
     }
+
     .box-container {
         display: flex;
         margin: 0 auto;
-        gap: 20px; 
+        gap: 20px;
         width: 50%;
         height: 50%;
     }
-    
+
     .box-img {
         text-align: center;
-        border: 5px solid #0b9e55; 
-        border-radius: 15px; 
-        padding: 10px; 
-        display: inline-block; /* Para que a moldura se ajuste ao tamanho da imagem */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+        border: 5px solid #0b9e55;
+        border-radius: 15px;
+        padding: 10px;
+        display: inline-block;
+        /* Para que a moldura se ajuste ao tamanho da imagem */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         position: relative;
     }
+
     .social-icons {
-        position: absolute; 
-        bottom: 20px; 
-        left: 20px; 
-        display: flex; 
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        display: flex;
         gap: 5px;
     }
+
     .icon {
-        width: 35px; 
-        height: 35px; 
+        width: 35px;
+        height: 35px;
         margin: 0 5px;
         border-radius: 50%;
     }
+
     .box-img img {
-        width: 100%; 
-        height: auto; 
-        border-radius: 10px; 
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
     }
-    .name{
+
+    .name {
         position: absolute;
         font-size: 35px;
         padding-left: 15px;
-        
+
         align-items: left;
         font-weight: 900;
     }

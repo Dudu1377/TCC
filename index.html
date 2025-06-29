@@ -107,7 +107,8 @@
                     <p class="description">
                         <!-- Dependendo da quantidade de linhas dessa descrição tem q mudar o 'maxwidth' da description para ficar formatado certinho -->
                         Criamos este site com o objetivo de reduzir o desperdício de alimentos, com foco especial em
-                        restaurantes que produzem grandes quantidades de comida e frequentemente não conseguem utilizá-la
+                        restaurantes que produzem grandes quantidades de comida e frequentemente não conseguem
+                        utilizá-la
                         totalmente ao final do expediente.
                     </p>
                     <button class="information"><a href="#Why">
@@ -127,7 +128,7 @@
                     <p class="description">
                         <!-- Dependendo da quantidade de linhas dessa descrição tem q mudar o 'maxwidth' da description para ficar formatado certinho -->
                         Aqui disponibilizamos um mapa com sedes que podem receber os alimentos não consumidos ao final
-                        do dia, como centros de doação e outros locais que podem reutilizá-los para um bem 
+                        do dia, como centros de doação e outros locais que podem reutilizá-los para um bem
                         maior, contribuindo para a redução do desperdício.
                     </p>
                     <button class="information"><a href="#Where">
@@ -170,100 +171,102 @@
                 <li></li>
             </ul>
         </div>
-        <div class="Donation">
-        Seja a Mudança
-        </div>
-        <div class="containerDonation">
-    <section>
-    <div class="DonorSelection" id="DonorSelection">
-            <label>
-            <h1>Selecione o tipo de doador</h1>
-            <input type="radio" name="donorType" value="Independent">
-            Doador Independente
-            </label>
-            <label>
-            <input type="radio" name="donorType" value="Company">
-            Empresa
-            </label>
-            <button id="NextButton">Próximo</button>
-        </div>
-        
-        <div class="Donation-form1">
-            <form id="donationCompanyInfo">
-                <h1>Formulario de doação de alimentos</h1>
-                <div class="close-pop-up close-donation">
-                    &times;
-                </div>
-                <h2>Informações basicas do estabelecimento</h2>
-                <label for="establishmentName">Nome do estabelecimento:</label>
-                <input type="text" id="establishmentName" name="establishmentName" required>
-
-                <label for="CNPJ">CNPJ:</label>
-                <input type="text" id="CNPJ" name="CNPJ" required pattern="\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}" title="Formato: 00.000.000/0000-00">
-
-                <label for="address">Endereço completo:</label>
-                <input type="text" id="address" name="address" required>
-
-                <label for="phone">Telefone para contato:</label>
-                <input type="text" id="phone" name="phone" required>
-
-                <label for="email">Email corporativo:</label>
-                <input type="text" id="email" name="email" required>
-            </form>
-        </div>
-        <div class="Donation-form2">
-            <form id="donationCompanyInfo2">
-                <div class="close-pop-up close-donation">
-                    &times;
-                </div>
-                <h2>Detalhes da doação</h2>
-                <label for="foodTypes">Tipo de alimento</label>
-                <select id="foodType" name="foodType" required>
-                    <option value="">Selecione</option>
-                    <option value="refeicoes_prontas">Refeições Prontas</option>
-                    <option value="ingredientes">Ingredientes</option>
-                    <option value="lanches">Lanches</option>
-                </select>
-                <label for="quantity">Quantidade estimada:</label>
-                <input type="number" id="quantity" name="quantity" placeholder="Kg" required>
-                <label for="preparationDate">Data de preparo:</label>
-                <input type="date" id="preparationDate" name="preparationDate" required>
-                <label for="expirationDate">Data de validade:</label>
-                <input type="date" id="expirationDate" name="expirationDate" required>
-                <label for="availabilityTime">Horario de disponibilidade:</label>
-                <input type="text" id="availabilityTime" name="availabilityTime" required>
-                <label for="conservationInstructions">Instruções de conservação:</label>
-                <input type="text" id="conservationInstructions" name="conservationInstructions" required>
-                <label for="especialObservations">Observações Especiais:</label>
-                <textarea type="text" id="especialObservations" name="especialObservations"></textarea>
-            </form>
-        </div>
-        <div class="Donation-form3">
-            <form id="donationCompanyInfo3">
-                <div class="close-pop-up close-donation">
-                    &times;
-                </div>
-                <h2>Informações Logísticas</h2>
-                <label for="deliveryMode">Forma de entrega</label>
-                <select id="deliveryMode" name="deliveryMode" required>
-                    <option value="">Selecione</option>
-                    <option value="coleta">Coleta no Local</option>
-                    <option value="entrega">Entrega</option>
-                </select>
-                <label for="donationFrequency">Frequência da doação</label>
-                <select id="donationFrequency" name="donationFrequency" required>
-                    <option value="">Selecione</option>
-                    <option value="pontual">Pontual</option>
-                    <option value="semanal">Semanal</option>
-                    <option value="diaria">Diária</option>
-                </select>
-                <label for="equipmentNeeded">Equipamentos Necessários:</label>
-                <input type="text" id="equipmentNeeded" name="equipmentNeeded">
-                <button type="submit">Enviar Doação</button>
-            </form>
-        </div>  
     </section>
-</div>  
+    <div class="Donation">
+        Seja a Mudança
+    </div>
+    <section id="Donation">
+        <div class="containerDonation">
+            <div class="DonorSelection" id="DonorSelection">
+                <form id="donorType">
+                    <label>
+                        <h1>Selecione o tipo de doador</h1>
+                        <input type="radio" name="donorType" value="Independent">
+                        Doador Independente
+                    </label>
+                    <label>
+                        <input type="radio" name="donorType" value="Company">
+                        Empresa
+                    </label>
+                    <button id="NextButton">Próximo</button>
+                </form>
+            </div>
+            <div class="Donation-form1">
+                <form id="donationCompanyInfo">
+                    <h1>Formulario de doação de alimentos</h1>
+                    <div class="close-pop-up close-donation">
+                        &times;
+                    </div>
+                    <h2>Informações basicas do estabelecimento</h2>
+                    <label for="establishmentName">Nome do estabelecimento:</label>
+                    <input type="text" id="establishmentName" name="establishmentName" required>
+
+                    <label for="CNPJ">CNPJ:</label>
+                    <input type="text" id="CNPJ" name="CNPJ" required pattern="\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}"
+                        title="Formato: 00.000.000/0000-00">
+
+                    <label for="address">Endereço completo:</label>
+                    <input type="text" id="address" name="address" required>
+
+                    <label for="phone">Telefone para contato:</label>
+                    <input type="text" id="phone" name="phone" required>
+
+                    <label for="email">Email corporativo:</label>
+                    <input type="text" id="email" name="email" required>
+                </form>
+            </div>
+            <div class="Donation-form2">
+                <form id="donationCompanyInfo2">
+                    <div class="close-pop-up close-donation">
+                        &times;
+                    </div>
+                    <h2>Detalhes da doação</h2>
+                    <label for="foodTypes">Tipo de alimento</label>
+                    <select id="foodType" name="foodType" required>
+                        <option value="">Selecione</option>
+                        <option value="refeicoes_prontas">Refeições Prontas</option>
+                        <option value="ingredientes">Ingredientes</option>
+                        <option value="lanches">Lanches</option>
+                    </select>
+                    <label for="quantity">Quantidade estimada:</label>
+                    <input type="number" id="quantity" name="quantity" placeholder="Kg" required>
+                    <label for="preparationDate">Data de preparo:</label>
+                    <input type="date" id="preparationDate" name="preparationDate" required>
+                    <label for="expirationDate">Data de validade:</label>
+                    <input type="date" id="expirationDate" name="expirationDate" required>
+                    <label for="availabilityTime">Horario de disponibilidade:</label>
+                    <input type="text" id="availabilityTime" name="availabilityTime" required>
+                    <label for="conservationInstructions">Instruções de conservação:</label>
+                    <input type="text" id="conservationInstructions" name="conservationInstructions" required>
+                    <label for="especialObservations">Observações Especiais:</label>
+                    <textarea type="text" id="especialObservations" name="especialObservations"></textarea>
+                </form>
+            </div>
+            <div class="Donation-form3">
+                <form id="donationCompanyInfo3">
+                    <div class="close-pop-up close-donation">
+                        &times;
+                    </div>
+                    <h2>Informações Logísticas</h2>
+                    <label for="deliveryMode">Forma de entrega</label>
+                    <select id="deliveryMode" name="deliveryMode" required>
+                        <option value="">Selecione</option>
+                        <option value="coleta">Coleta no Local</option>
+                        <option value="entrega">Entrega</option>
+                    </select>
+                    <label for="donationFrequency">Frequência da doação</label>
+                    <select id="donationFrequency" name="donationFrequency" required>
+                        <option value="">Selecione</option>
+                        <option value="pontual">Pontual</option>
+                        <option value="semanal">Semanal</option>
+                        <option value="diaria">Diária</option>
+                    </select>
+                    <label for="equipmentNeeded">Equipamentos Necessários:</label>
+                    <input type="text" id="equipmentNeeded" name="equipmentNeeded">
+                    <button type="submit">Enviar Doação</button>
+                </form>
+            </div>
+        </div>
     </section>
     <section class="Why" id="Why">
         <h2 class="Title">Why <span>Sharing </span></h2>
@@ -274,10 +277,13 @@
                 </div>
                 <div class="content">
                     <h2>Our Goal</h2>
-                    <p>Conectamos restaurantes e estabelecimentos alimentícios com instituições de caridade, transformando sobras do dia em refeições para quem mais precisa.</p>
-                    <p> Mais de 64 milhões de brasileiros enfrentam insegurança alimentar enquanto desperdiçamos toneladas de comida diariamente. Nossa plataforma une essas duas realidades, criando uma ponte entre abundância e necessidade.</p>
+                    <p>Conectamos restaurantes e estabelecimentos alimentícios com instituições de caridade,
+                        transformando sobras do dia em refeições para quem mais precisa.</p>
+                    <p> Mais de 64 milhões de brasileiros enfrentam insegurança alimentar enquanto desperdiçamos
+                        toneladas de comida diariamente. Nossa plataforma une essas duas realidades, criando uma ponte
+                        entre abundância e necessidade.</p>
                 </div>
-                
+
             </div>
             <div class="box-Goal">
                 <div class="box-img">
@@ -285,8 +291,11 @@
                 </div>
                 <div class="content">
                     <h2>Solidarity Network</h2>
-                    <p>Fortalecemos laços comunitários ao permitir que empresas se tornem agentes ativos na construção de uma sociedade mais justa. </p>
-                    <p>Cada doação realizada através da nossa plataforma não apenas alimenta pessoas, mas também fortalece instituições de caridade e cria uma rede de apoio mútuo que beneficia toda a comunidade local.</p>
+                    <p>Fortalecemos laços comunitários ao permitir que empresas se tornem agentes ativos na construção
+                        de uma sociedade mais justa. </p>
+                    <p>Cada doação realizada através da nossa plataforma não apenas alimenta pessoas, mas também
+                        fortalece instituições de caridade e cria uma rede de apoio mútuo que beneficia toda a
+                        comunidade local.</p>
                 </div>
             </div>
             <div class="box-SLAOQ">
@@ -295,7 +304,10 @@
                 </div>
                 <div class="content">
                     <h2>Greenest Planet</h2>
-                    <p>Alimentos desperdiçados geram até 10% das emissões globais de gases de efeito estufa. Nossa plataforma reduz significativamente a pegada de carbono ao evitar que comida em perfeito estado vá para aterros sanitários. Cada refeição redirecionada é um passo em direção a um futuro mais sustentável para todos.</p>
+                    <p>Alimentos desperdiçados geram até 10% das emissões globais de gases de efeito estufa. Nossa
+                        plataforma reduz significativamente a pegada de carbono ao evitar que comida em perfeito estado
+                        vá para aterros sanitários. Cada refeição redirecionada é um passo em direção a um futuro mais
+                        sustentável para todos.</p>
                     <p>Escrever mais alguma coisa aqui para ficar 2 paragrafos</p>
                 </div>
             </div>
@@ -305,7 +317,10 @@
                 </div>
                 <div class="content">
                     <h2>Legal Compliance</h2>
-                    <p>A Lei 14.016/2020 permite e incentiva a doação de excedentes alimentares para consumo humano. Nossa plataforma facilita este processo legal, oferecendo um sistema seguro e organizado para que estabelecimentos cumpram sua responsabilidade social de forma eficiente, transparente e sem complicações burocráticas.</p>
+                    <p>A Lei 14.016/2020 permite e incentiva a doação de excedentes alimentares para consumo humano.
+                        Nossa plataforma facilita este processo legal, oferecendo um sistema seguro e organizado para
+                        que estabelecimentos cumpram sua responsabilidade social de forma eficiente, transparente e sem
+                        complicações burocráticas.</p>
                     <p>Escrever mais alguma coisa aqui para ficar 2 paragrafos</p>
                 </div>
             </div>
@@ -331,20 +346,28 @@
                 <h1 class="name">Eduardo de Toledo</h1>
                 <img class="Profile_pic_Du" src="./Img/Profile_Du.jpeg">
                 <div class="social-icons">
-                <a href="https://www.instagram.com/toledodudu0_0/" target="_blank" class="icon instagram"><img src="./Img/Instagram.png" alt="Icon Instagram"></a>
-                <a href="https://wa.me/5519996701623" target="_blank" class="icon whatsapp"><img src="./Img/Whatsapp.png" alt="icon WhatsApp"></a>
-                <a href="" target="_blank" class="icon Linkedin"><img src="./Img/Linkedin.png" alt="icon Linkedin"></a>
-                <a href="mailto:dududetoledo@gmail.com" class="icon email"><img src="./Img/Gmail.png" alt="icon email"></a>
+                    <a href="https://www.instagram.com/toledodudu0_0/" target="_blank" class="icon instagram"><img
+                            src="./Img/Instagram.png" alt="Icon Instagram"></a>
+                    <a href="https://wa.me/5519996701623" target="_blank" class="icon whatsapp"><img
+                            src="./Img/Whatsapp.png" alt="icon WhatsApp"></a>
+                    <a href="" target="_blank" class="icon Linkedin"><img src="./Img/Linkedin.png"
+                            alt="icon Linkedin"></a>
+                    <a href="mailto:dududetoledo@gmail.com" class="icon email"><img src="./Img/Gmail.png"
+                            alt="icon email"></a>
                 </div>
             </div>
             <div class="box-img">
                 <h1 class="name">Gabriel Fiorini</h1>
                 <img class="Profile_pic_Du" src="./Img/Profile_Ga.jpeg">
                 <div class="social-icons">
-                <a href="https://www.instagram.com/gabee_fiorini/" target="_blank" class="icon instagram"><img src="./Img/Instagram.png" alt="Icon Instagram"></a>
-                <a href="https://wa.me/5519993552697" target="_blank" class="icon whatsapp"><img src="./Img/Whatsapp.png" alt="icon WhatsApp"></a>
-                <a href="" target="_blank" class="icon Linkedin"><img src="./Img/Linkedin.png" alt="icon Linkedin"></a>
-                <a href="mailto:email@exemplo.com" class="icon email"><img src="./Img/Gmail.png" alt="icon email"></a>
+                    <a href="https://www.instagram.com/gabee_fiorini/" target="_blank" class="icon instagram"><img
+                            src="./Img/Instagram.png" alt="Icon Instagram"></a>
+                    <a href="https://wa.me/5519993552697" target="_blank" class="icon whatsapp"><img
+                            src="./Img/Whatsapp.png" alt="icon WhatsApp"></a>
+                    <a href="" target="_blank" class="icon Linkedin"><img src="./Img/Linkedin.png"
+                            alt="icon Linkedin"></a>
+                    <a href="mailto:email@exemplo.com" class="icon email"><img src="./Img/Gmail.png"
+                            alt="icon email"></a>
                 </div>
             </div>
         </div>
