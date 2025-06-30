@@ -75,3 +75,24 @@ button.addEventListener('click', function () {
     this.src = type === 'password' ? './Img/olho.png' : './Img/olho_aberto.png';
 })
 })
+
+//COPIADO E COLADO DO GPT
+
+document.querySelector('#create-account-form form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const firstName = document.getElementById('First_name').value;
+  const lastName = document.getElementById('Last_name').value;
+  const email = document.querySelector('#create-account-form input[type="email"]').value;
+  const password = document.querySelector('#create-account-form input[type="password"]').value;
+
+  const response = await fetch('/api/register', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ firstName, lastName, email, password })
+  });
+
+  const result = await response.json();
+  alert(result.message);
+});
+
