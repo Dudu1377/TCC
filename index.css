@@ -140,6 +140,13 @@
 .submit-button:hover {
     background-color: #1baa1b;
 }
+.clear{
+    border: none;
+    font-size: 15px;
+    font-weight: 300;
+    cursor: pointer;
+    
+}
 
 .Container-Sing-in {
     display: grid;
