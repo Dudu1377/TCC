@@ -1,0 +1,15 @@
+{
+  "name": "projeto",
+  "version": "1.0.0",
+  "description": "Site para doacoes com Node.js, MySQL, Express",
+  "main": "server/app.js",
+  "scripts": {
+    "start": "node server/app.js"
+  },
+  "author": "Seu Nome",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql2": "^3.3.1"
+  }
+}
