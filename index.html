@@ -49,44 +49,56 @@
                         &times;
                     </div>
                     <h1>Create an Account</h1>
-                    <div class="input-name active" id="login-form">
-                        <input placeholder="First name" type="text" id="First_name" required>
-                        <input placeholder="Last name" type="text" id="Last_name" required>
+                    <div class="input">
+                        <input placeholder="Username" type="text" id="username" oninput="validateFieldsLogin()"
+                            required>
                     </div>
                     <div class="input">
-                        <input placeholder="Email" type="email" required>
+                        <input placeholder="Email" type="email" id="email" oninput="validateFieldsLogin()" required>
                     </div>
                     <div class="input">
-                        <input placeholder="Password" type="password" id="password" class="password" required>
+                        <input placeholder="Enter your password" type="password" id="password"
+                            oninput="validateFieldsLogin()" class="password" required>
                         <img width="20" height="20" src="./Img/olho.png" id="togglePassword" class="togglePassword">
-                        <button type="button" class="clear" >Forgot my password</button>
-                        <button type="submit" class="submit-button" disabled="true">Submit</button>
                     </div>
-                    <div class="Container-Sing-in">
-                        <div class="Sing-in">
+                    <div class="input">
+                        <input placeholder="Confirm your password" type="password" id="confirmPassword"
+                            oninput="validateFieldsLogin()" class="password" required>
+                        <img width="20" height="20" src="./Img/olho.png" id="togglePassword" class="togglePassword">
+                    </div>
+                    <div class="input">
+                        <button type="submit" class="submit-button" id="loginButtonForm" disabled="true">Login</button>
+                    </div>
+                    <div class="Container-Sing-up">
+                        <div class="Sing-up">
                             Already have an Account ?
-                            <a href="#" onclick="login()">Sing-in</a>
+                            <a href="#" onclick="login()">Sing-up</a>
                         </div>
                     </div>
                 </form>
             </div>
             <!-- inicio do form de registrar -->
-            <div class="pop-up-Sing-in" id="sing-in-form" style="display: none;">
+            <div class="pop-up-Sing-up" id="sing-up-form" style="display: none;">
                 <form>
-                    <div class="close-pop-up close-sing-in" id="close-pop-up">
+                    <div class="close-pop-up close-sing-up" id="close-pop-up">
                         &times;
                     </div>
-                    <h1>Sign in</h1>
+                    <h1>Sign Up</h1>
                     <div class="input">
-                        <input placeholder="Username or Email" type="text" id="UsernameOrEmail" required>
+                        <input placeholder="Email" type="email" id="emailSingUp" oninput="validateFieldsSingUp()"
+                            required>
                     </div>
                     <div class="input">
-                        <input placeholder="Password" type="password" id="password" class="password" required>
+                        <input placeholder="Password" type="password" id="passwordSingUp"
+                            oninput="validateFieldsSingUp()" class="password" required>
                         <img width="20" height="20" src="./Img/olho.png" id="togglePassword" class="togglePassword">
-                        <a href="#">Forgot my password</a>
-                        <button type="submit" class="submit-button">Submit</button>
                     </div>
-                    <div class="Container-Sing-in">
+                    <div class="input">
+                        <button type="button" id="recoverPassword" disabled="true" class="clear">Forgot my
+                            password</button>
+                        <button type="submit" class="submit-button" id="singUpButton" disabled="true">Sing Up</button>
+                    </div>
+                    <div class="Container-Sing-un">
                         <div class="create-an-account">
                             Dont have an Account ?
                             <a href="#" onclick="create()">create an account</a>

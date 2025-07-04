@@ -1,15 +1,24 @@
 {
-  "name": "projeto",
+  "name": "tcc",
   "version": "1.0.0",
-  "description": "Site para doacoes com Node.js, MySQL, Express",
-  "main": "server/app.js",
+  "main": "scripts.js",
   "scripts": {
-    "start": "node server/app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Seu Nome",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dudu1377/TCC.git"
+  },
+  "keywords": [],
+  "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dudu1377/TCC/issues"
+  },
+  "homepage": "https://github.com/Dudu1377/TCC#readme",
+  "description": "",
   "dependencies": {
-    "express": "^4.18.2",
-    "mysql2": "^3.3.1"
+    "express": "^5.1.0",
+    "mysql2": "^3.14.1"
   }
 }

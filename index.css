@@ -39,7 +39,7 @@
 
 .pop-up-create {
     width: 350px;
-    height: 480px;
+    height: 510px;
     background: white;
     border: 2px solid #051f0f;
     backdrop-filter: blur(20px);
@@ -54,7 +54,7 @@
     }
 }
 
-.pop-up-Sing-in {
+.pop-up-Sing-up {
     /*CSS do pop-up login*/
     width: 350px;
     height: 380px;
@@ -90,7 +90,7 @@
     img {
         position: absolute;
         right: 15px;
-        bottom: 89px;
+        bottom: 8px;
         cursor: pointer;
     }
 
@@ -140,30 +140,33 @@
 .submit-button:hover {
     background-color: #1baa1b;
 }
-.clear{
+.clear{ 
     border: none;
     font-size: 15px;
-    font-weight: 300;
     cursor: pointer;
-    
+    margin-left: 3px;
+    opacity: 1;
+    font-weight: 300;
+    color: black;
 }
-
-.Container-Sing-in {
+button[disabled]{
+    opacity: 0.5;
+}
+.Container-Sing-up {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
     padding-bottom: 10px;
     font-size: 15px;
 }
-
-.Sing-in {
+.Sing-up {
     font-size: 14px;
     width: 1000%;
     margin-right: 125px;
 
 }
 
-.Sing-in a {
+.Sing-up a {
     color: blue;
 }
 
@@ -193,7 +196,7 @@ label {
 }
 
 #Donation {
-    display: flex;
+    display: none;
     /*Mudar isso para todo o section sumir e não ficar um vão sem nada*/
 }
 
@@ -230,7 +233,7 @@ label {
         margin-bottom: 7px; /* Aumenta o espaçamento entre os labels */
     }
 }
-/*.Sing-in{ //caso for usar botão para  o Sing-in e não só a escrita cm um link
+/*.Sing-up{ //caso for usar botão para  o Sing-up e não só a escrita cm um link
     width: 60px;
     height: 20px;
     border-radius: 20px;
