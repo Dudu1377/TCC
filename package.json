@@ -1,4 +1,4 @@
-{
+	{
   "name": "tcc",
   "version": "1.0.0",
   "main": "scripts.js",
@@ -20,5 +20,6 @@
   "dependencies": {
     "express": "^5.1.0",
     "mysql2": "^3.14.1"
-  }
+  },
+  "type": "module"
 }
