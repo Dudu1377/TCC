@@ -54,7 +54,7 @@
     }
 }
 
-.pop-up-Sing-up {
+.pop-up-Sign-up {
     /*CSS do pop-up login*/
     width: 350px;
     height: 380px;
@@ -152,21 +152,21 @@
 button[disabled]{
     opacity: 0.5;
 }
-.Container-Sing-up {
+.Container-Sign-up {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
     padding-bottom: 10px;
     font-size: 15px;
 }
-.Sing-up {
+.Sign-up {
     font-size: 14px;
     width: 1000%;
     margin-right: 125px;
 
 }
 
-.Sing-up a {
+.Sign-up a {
     color: blue;
 }
 
@@ -233,7 +233,7 @@ label {
         margin-bottom: 7px; /* Aumenta o espaçamento entre os labels */
     }
 }
-/*.Sing-up{ //caso for usar botão para  o Sing-up e não só a escrita cm um link
+/*.Sign-up{ //caso for usar botão para  o Sign-up e não só a escrita cm um link
     width: 60px;
     height: 20px;
     border-radius: 20px;

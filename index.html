@@ -50,58 +50,58 @@
                     </div>
                     <h1>Create an Account</h1>
                     <div class="input">
-                        <input placeholder="Username" type="text" id="username" oninput="validateFieldsLogin()"
+                        <input placeholder="Username" type="text" id="username" oninput="validateFieldsSignUp()"
                             required>
                     </div>
                     <div class="input">
-                        <input placeholder="Email" type="email" id="email" oninput="validateFieldsLogin()" required>
+                        <input placeholder="Email" type="email" id="emailSignUp" oninput="validateFieldsSignUp()" required>
                     </div>
                     <div class="input">
-                        <input placeholder="Enter your password" type="password" id="password"
-                            oninput="validateFieldsLogin()" class="password" required>
+                        <input placeholder="Enter your password" type="password" id="passwordSignUp"
+                            oninput="validateFieldsSignUp()" class="password" required>
                         <img width="20" height="20" src="./Img/olho.png" id="togglePassword" class="togglePassword">
                     </div>
                     <div class="input">
                         <input placeholder="Confirm your password" type="password" id="confirmPassword"
-                            oninput="validateFieldsLogin()" class="password" required>
+                            oninput="validateFieldsSignUp()" class="password" required>
                         <img width="20" height="20" src="./Img/olho.png" id="togglePassword" class="togglePassword">
                     </div>
                     <div class="input">
-                        <button type="submit" class="submit-button" id="loginButtonForm" disabled="true">Login</button>
+                        <button type="button" class="submit-button" id="SignUpButton" disabled="true" onclick="SingUp()">Sing Up</button>
                     </div>
-                    <div class="Container-Sing-up">
-                        <div class="Sing-up">
+                    <div class="Container-Sign-up">
+                        <div class="Sign-up">
                             Already have an Account ?
-                            <a href="#" onclick="login()">Sing-up</a>
+                            <a href="#">Login</a>
                         </div>
                     </div>
                 </form>
             </div>
             <!-- inicio do form de registrar -->
-            <div class="pop-up-Sing-up" id="sing-up-form" style="display: none;">
+            <div class="pop-up-Sign-up" id="Sign-up-form" style="display: none;">
                 <form>
-                    <div class="close-pop-up close-sing-up" id="close-pop-up">
+                    <div class="close-pop-up close-Sign-up" id="close-pop-up">
                         &times;
                     </div>
-                    <h1>Sign Up</h1>
+                    <h1>Login</h1>
                     <div class="input">
-                        <input placeholder="Email" type="email" id="emailSingUp" oninput="validateFieldsSingUp()"
+                        <input placeholder="Email" type="email" id="emailLogin" oninput="validateFieldsLogin()"
                             required>
                     </div>
                     <div class="input">
-                        <input placeholder="Password" type="password" id="passwordSingUp"
-                            oninput="validateFieldsSingUp()" class="password" required>
+                        <input placeholder="Password" type="password" id="passwordLogin"
+                            oninput="validateFieldsLogin()" class="password" required>
                         <img width="20" height="20" src="./Img/olho.png" id="togglePassword" class="togglePassword">
                     </div>
                     <div class="input">
                         <button type="button" id="recoverPassword" disabled="true" class="clear">Forgot my
                             password</button>
-                        <button type="submit" class="submit-button" id="singUpButton" disabled="true">Sing Up</button>
+                        <button type="button" class="submit-button" id="LoginButton" disabled="true" onclick="Login()">Login</button>
                     </div>
-                    <div class="Container-Sing-un">
+                    <div class="Container-Sign-un">
                         <div class="create-an-account">
                             Dont have an Account ?
-                            <a href="#" onclick="create()">create an account</a>
+                            <a href="#">Sing up</a>
                         </div>
                     </div>
                 </form>
@@ -224,7 +224,7 @@
                     <input type="text" id="phone" name="phone" required>
 
                     <label for="email">Email corporativo:</label>
-                    <input type="text" id="email" name="email" required>
+                    <input type="text" id="emailCorporativo" name="email" required>
                 </form>
             </div>
             <div class="Donation-form2">
@@ -385,6 +385,19 @@
         </div>
     </section>
     <script src="scripts.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.10.0/firebase-app-compat.js"> </script>
+    <script src="https://www.gstatic.com/firebasejs/11.10.0/firebase-auth-compat.js"> </script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCac0XoR4OzM-wBcfZUcpwD7A_7mH7aUb4",
+            authDomain: "tcc-why-sharing.firebaseapp.com",
+            projectId: "tcc-why-sharing",
+            storageBucket: "tcc-why-sharing.firebasestorage.app",
+            messagingSenderId: "1007911019882",
+            appId: "1:1007911019882:web:785fddf7acf5576d73f113"
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
 </body>
 
 </html>
