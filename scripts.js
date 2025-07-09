@@ -77,6 +77,29 @@ const form = {
     emailSignUp: () => document.getElementById('emailSignUp'),
     passwordLogin: () => document.getElementById('passwordLogin')
 }
+//PAGINA DE CARREGAMENTO
+
+document.addEventListener('DOMContentLoaded', () => {
+  const LoginButton = document.getElementById('LoginButton');
+  LoginButton.addEventListener('click', accountLogin);
+});
+
+function showLoading() {
+    const div = document.createElement("div");
+    div.classList.add("loading");
+
+    const label = document.createElement("label");
+    label.innerText = "Carregando...";
+
+    div.appendChild(label);
+    document.body.appendChild(div); 
+}
+function hideLoading(){
+    const loadings = document.getElementsByClassName("loading")
+    if (loadings.length){
+        loadings[0].remove();
+    }
+}
 
 //CARROSSEL
 
@@ -163,12 +186,15 @@ togglePassword.forEach(button => {
         this.src = type === 'password' ? './Img/olho.png' : './Img/olho_aberto.png';
     })
 })
-function Login() {
+function accountLogin(){
+    showLoading();
     firebase.auth().signInWithEmailAndPassword(form.emailLogin().value, form.passwordLogin().value).then(response => {
+        hideLoading();
         popUpContainer.style.display = 'none';
         document.body.classList.remove('no-scroll');
     }).catch(error => {
-        alert(getErrorMessage(error))
+        hideLoading();
+        alert(getErrorMessage(error));
     });
 }
 function getErrorMessage(error){

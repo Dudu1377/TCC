@@ -22,9 +22,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="index.css">
 </head>
-
 <body>
-
     <header>
         <nav>
             <div class="logo">
@@ -54,7 +52,8 @@
                             required>
                     </div>
                     <div class="input">
-                        <input placeholder="Email" type="email" id="emailSignUp" oninput="validateFieldsSignUp()" required>
+                        <input placeholder="Email" type="email" id="emailSignUp" oninput="validateFieldsSignUp()"
+                            required>
                     </div>
                     <div class="input">
                         <input placeholder="Enter your password" type="password" id="passwordSignUp"
@@ -67,7 +66,8 @@
                         <img width="20" height="20" src="./Img/olho.png" id="togglePassword" class="togglePassword">
                     </div>
                     <div class="input">
-                        <button type="button" class="submit-button" id="SignUpButton" disabled="true" onclick="SingUp()">Sing Up</button>
+                        <button type="button" class="submit-button" id="SignUpButton" disabled="true"
+                            onclick="showLoading()">Sing Up</button>
                     </div>
                     <div class="Container-Sign-up">
                         <div class="Sign-up">
@@ -89,14 +89,14 @@
                             required>
                     </div>
                     <div class="input">
-                        <input placeholder="Password" type="password" id="passwordLogin"
-                            oninput="validateFieldsLogin()" class="password" required>
+                        <input placeholder="Password" type="password" id="passwordLogin" oninput="validateFieldsLogin()"
+                            class="password" required>
                         <img width="20" height="20" src="./Img/olho.png" id="togglePassword" class="togglePassword">
                     </div>
                     <div class="input">
                         <button type="button" id="recoverPassword" disabled="true" class="clear">Forgot my
                             password</button>
-                        <button type="button" class="submit-button" id="LoginButton" disabled="true" onclick="Login()">Login</button>
+                        <button type="button" class="submit-button" id="LoginButton" disabled="true">Login</button>
                     </div>
                     <div class="Container-Sign-un">
                         <div class="create-an-account">
