@@ -101,6 +101,18 @@ function hideLoading(){
     }
 }
 
+//RECUPERAR SENHA
+function recoverPasswordButton(){
+    showLoading();
+    firebase.auth().sendPasswordResetEmail(form.emailLogin().value).then(() => {
+        hideLoading();
+        alert('Email enviado com sucesso');
+    }).catch(error => {
+        hideLoading();
+        alert(getErrorMessage(error));
+    });
+}
+
 //CARROSSEL
 
 let prevButton = document.getElementById('prev')
@@ -197,9 +209,9 @@ function accountLogin(){
         alert(getErrorMessage(error));
     });
 }
-function getErrorMessage(error){
+    function getErrorMessage(error){
     if (error.code == "auth/invalid-credential"){
-        return "Dados inválidos";
+        return "Usuário nao encontrado";
     }
     return error.message;
 
