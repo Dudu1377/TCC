@@ -5,8 +5,7 @@ function validateFieldsSignUp() {
     const PasswordValid = isPasswordSingUpValid();
     const emailValid = isEmailSingUpValid();
     const confirmPassword = isConfirmPasswordValid();
-    const usernameValid = isUsernameValid();
-    form.SignUpButton().disabled = !emailValid || !PasswordValid || !confirmPassword || !usernameValid;
+    form.SignUpButton().disabled = !emailValid || !PasswordValid || !confirmPassword;
 
 }
 function validateFieldsLogin() {
@@ -34,13 +33,6 @@ function isConfirmPasswordValid() {
     const passwordSignUp = form.passwordSignUp().value;
     const confirmPassword = form.confirmPassword().value;
     if (!confirmPassword || passwordSignUp !== confirmPassword) {
-        return false;
-    }
-    return true;
-}
-function isUsernameValid() {
-    const username = form.username().value;
-    if (!username) {
         return false;
     }
     return true;
@@ -73,7 +65,6 @@ const form = {
     LoginButton: () => document.getElementById('LoginButton'),
     passwordSignUp: () => document.getElementById('passwordSignUp'),
     confirmPassword: () => document.getElementById('confirmPassword'),
-    username: () => document.getElementById('username'),
     emailSignUp: () => document.getElementById('emailSignUp'),
     passwordLogin: () => document.getElementById('passwordLogin')
 }
@@ -215,4 +206,31 @@ function accountLogin(){
     }
     return error.message;
 
+}
+
+function register(){
+    showLoading();
+    
+    const email = form.emailSignUp().value;
+    const password = form.passwordSignUp().value;
+    firebase.auth().createUserWithEmailAndPassword(
+        email, password
+    ).then(() => {
+        hideLoading();
+        popUpContainer.style.display = 'none';
+        document.body.classList.remove('no-scroll');
+    }).catch(error => {
+        hideLoading();
+        alert(getErrorMessage(error));
+    })
+}
+function getErrorMessage(error){
+    if (error.code == "auth/email-already-in-use") {
+        return "Email já está em uso"
+    }
+    if (error.code == "auth/weak-password") {
+        return "Senha fraca, coloque 6 ou mais caracteres"
+    }
+    
+    return error.message;
 }
