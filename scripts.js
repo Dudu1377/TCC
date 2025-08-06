@@ -234,3 +234,9 @@ function getErrorMessage(error){
     
     return error.message;
 }
+const loginIcon = document.getElementById('LoginImage')
+firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+      loginIcon.src = "./Img/Login Logado sem fundo.png";
+    }
+  });

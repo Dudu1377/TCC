@@ -328,7 +328,8 @@ nav {
 }
 
 .Login img {
-    width: 60px;
+    width: 75px;
+    height: 85px;
     cursor: pointer;
     padding-bottom: 10px;
     transition: transform 0.3s ease;
@@ -336,7 +337,7 @@ nav {
 
 .Login img:hover {
     transform: translateY(-4px);
-    width: 60px;
+    width: 75px;
 }
 
 .nav-links {
