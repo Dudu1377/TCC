@@ -147,7 +147,7 @@ prevButton.onclick = () => {
 
 let closeButton = document.querySelectorAll('.close-pop-up');
 let popUpContainer = document.querySelector('.pop-up-container');
-let loginButton = document.querySelector('.Login img');
+let loginButton = document.getElementById('LoginImage');
 let togglePassword = document.querySelectorAll('.togglePassword');
 let passwordInput = document.getElementById('password');
 let SignUp = document.querySelector('.Sign-up')
@@ -155,12 +155,13 @@ let create = document.querySelector('.create-an-account')
 let popUpCreate = document.querySelector('.pop-up-create')
 let popUpSignUp = document.querySelector('.pop-up-Sign-up')
 
-loginButton.addEventListener('click', function () {
+function abrirPopupLogin() {
     popUpContainer.style.display = 'flex';
     popUpCreate.style.display = 'flex'
     popUpSignUp.style.display = 'none'
     document.body.classList.add('no-scroll');//adiciona uma classe ao documento
-})
+};
+
 SignUp.addEventListener('click', function () {
     popUpCreate.style.display = 'none'
     popUpSignUp.style.display = 'flex'
@@ -189,9 +190,10 @@ togglePassword.forEach(button => {
         this.src = type === 'password' ? './Img/olho.png' : './Img/olho_aberto.png';
     })
 })
+
 function accountLogin(){
     showLoading();
-    firebase.auth().signInWithEmailAndPassword(form.emailLogin().value, form.passwordLogin().value).then(response => {
+    firebase.auth().signInWithEmailAndPassword(form.emailLogin().value, form.passwordLogin().value).then(() => {
         hideLoading();
         popUpContainer.style.display = 'none';
         document.body.classList.remove('no-scroll');
@@ -231,12 +233,45 @@ function getErrorMessage(error){
     if (error.code == "auth/weak-password") {
         return "Senha fraca, coloque 6 ou mais caracteres"
     }
+    if (error.code == "auth/invalid-credential") {
+        return "Login não encontrado no sistema"
+    }
+    
     
     return error.message;
 }
-const loginIcon = document.getElementById('LoginImage')
-firebase.auth().onAuthStateChanged(user => {
-    if (user) {
-      loginIcon.src = "./Img/Login Logado sem fundo.png";
+const userEmailItem = document.getElementById('userEmail');
+const userMenu = document.getElementById('userMenu');
+const logoutBtn = document.getElementById('logoutBtn');
+document.addEventListener("DOMContentLoaded", () => {
+    const loginIcon = document.getElementById('LoginImage');
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+            loginIcon.src = "./Img/Login Logado sem fundo.png";
+            userEmailItem.textContent = user.email;
+            loginIcon.onclick = () => {
+                userMenu.classList.toggle('hidden');
+                };
+                logoutBtn.onclick = () => {
+                firebase.auth().signOut().then(() => {
+                    userMenu.classList.add('hidden');
+                });
+            };
+        } else {
+            loginIcon.src = "./Img/Login sem fundo.png"
+            loginIcon.onclick = abrirPopupLogin;
+        }
+    });
+});
+function logout() {
+    firebase.auth().signOut().then(()=> {
+        userMenu.classList.add('hidden');
+    }).catch(()=>{
+        alert('Erro ao fazer logout')
+    })
+}
+document.addEventListener('click', (event) => {
+    if (!event.target.closest('#userMenu') && !event.target.closest('#LoginImage')) {
+        userMenu.classList.add('hidden');
     }
-  });
+});

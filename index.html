@@ -36,6 +36,10 @@
             </ul>
             <div class="Login">
                 <img src="./Img/Login sem fundo.png" alt="Login" id="LoginImage">
+                <ul id="userMenu" class="hidden">
+                    <li id="userEmail"></li>
+                    <li id="logoutBtn" onclick="logout()">Logout</li>
+                </ul>
             </div>
         </nav>
     </header>
@@ -379,7 +383,6 @@
             </div>
         </div>
     </section>
-    <script src="scripts.js"></script>
     <script src="https://www.gstatic.com/firebasejs/11.10.0/firebase-app-compat.js"> </script>
     <script src="https://www.gstatic.com/firebasejs/11.10.0/firebase-auth-compat.js"> </script>
     <script>
@@ -393,6 +396,7 @@
         };
         firebase.initializeApp(firebaseConfig);
     </script>
+    <script src="scripts.js"></script>
 </body>
 
 </html>
