@@ -207,19 +207,23 @@ button[disabled]{
 
 label {
     display: block;
+
 }
 
 #Donation {
-    display: none;
-    /*Mudar isso para todo o section sumir e não ficar um vão sem nada*/
+    display: flex;
+    flex-direction: column; /* um embaixo do outro */
+    align-items: center; /* centraliza na horizontal */
+    justify-content: center; /* centraliza na vertical */
+    min-height: 100vh; /* ocupa a tela toda */
+    gap: 20px; /* espaço entre forms */
 }
 
 .containerDonation {
     position: fixed;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    /* None: não ativo - flex:ativo*/
+    width: 100%;
+    height: 100%;
+    display: flex;/* None: não ativo - flex:ativo*/
     justify-content: center;
     align-items: center;
     z-index: 1000;
@@ -231,39 +235,46 @@ label {
 .DonorSelection {
     background-color: white;
     border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     padding: 30px;
-    width: 50%;
+    width: 350px;
     display: flex;
     justify-content: center;
-    align-items: center;
-
-    h1 {
-        font-size: 40px;
-        text-align: center;
-        margin-bottom: 20px;
-    }
-    label{
-        margin-bottom: 7px; /* Aumenta o espaçamento entre os labels */
-    }
+    align-items: right;
+    flex-direction: column;
 }
-/*.Sign-up{ //caso for usar botão para  o Sign-up e não só a escrita cm um link
-    width: 60px;
-    height: 20px;
-    border-radius: 20px;
-    border: solid 1px gray;
-    background-color: #058105;
-    cursor: pointer;
-}*/
-/*CSS pagina normal*/
-.Donation {
+
+.DonorSelection h1 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+#NextButton{
+    margin-top: 20px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 18px;
     font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+
+}
+
+/*CSS pagina normal*/
+#openDonationBtn {
+    font-weight: bold;
+    font-size: 15px;
     position: fixed;
     bottom: 50px;
     right: 50px;
     color: black;
     padding: 20px 30px;
     border-radius: 13px;
+    border: none;
     cursor: pointer;
     z-index: 1;
     background-color: greenyellow;
@@ -271,7 +282,7 @@ label {
     box-shadow: 0 10px 15px rgba(255, 68, 68, 0.3);
 }
 
-.Donation:hover {
+#openDonationBtn:hover {
     background-color: #a0252f;
     transform: translateY(-8px);
     box-shadow: 0 6px 20px rgba(255, 68, 68, 0.4);

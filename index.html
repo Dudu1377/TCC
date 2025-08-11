@@ -183,23 +183,24 @@
             </ul>
         </div>
     </section>
-    <div class="Donation">
-        Seja a Mudança
-    </div>
+    <button id="openDonationBtn">Seja a mudança</button>
     <section id="Donation">
         <div class="containerDonation">
             <div class="DonorSelection" id="DonorSelection">
                 <form id="donorType">
-                    <label>
-                        <h1>Selecione o tipo de doador</h1>
+                    <h1>Selecione o tipo de doador</h1>
+                    
+                    <label class="radio-option">
                         <input type="radio" name="donorType" value="Independent">
-                        Doador Independente
+                        <span>Doador Independente</span>
                     </label>
-                    <label>
+            
+                    <label class="radio-option">
                         <input type="radio" name="donorType" value="Company">
-                        Empresa
+                        <span>Empresa</span>
                     </label>
-                    <button id="NextButton">Próximo</button>
+            
+                    <button id="NextButton" type="submit">Próximo</button>
                 </form>
             </div>
             <div class="Donation-form1">
@@ -224,6 +225,8 @@
 
                     <label for="email">Email corporativo:</label>
                     <input type="text" id="emailCorporativo" name="email" required>
+
+                    <button id="NextButton2" type="submit">Próximo</button>
                 </form>
             </div>
             <div class="Donation-form2">
@@ -251,6 +254,7 @@
                     <input type="text" id="conservationInstructions" name="conservationInstructions" required>
                     <label for="especialObservations">Observações Especiais:</label>
                     <textarea type="text" id="especialObservations" name="especialObservations"></textarea>
+                    <button id="NextButton3" type="submit">Próximo</button>
                 </form>
             </div>
             <div class="Donation-form3">
