@@ -71,8 +71,8 @@ const form = {
 //PAGINA DE CARREGAMENTO
 
 document.addEventListener('DOMContentLoaded', () => {
-  const LoginButton = document.getElementById('LoginButton');
-  LoginButton.addEventListener('click', accountLogin);
+    const LoginButton = document.getElementById('LoginButton');
+    LoginButton.addEventListener('click', accountLogin);
 });
 
 function showLoading() {
@@ -83,17 +83,17 @@ function showLoading() {
     label.innerText = "Carregando...";
 
     div.appendChild(label);
-    document.body.appendChild(div); 
+    document.body.appendChild(div);
 }
-function hideLoading(){
+function hideLoading() {
     const loadings = document.getElementsByClassName("loading")
-    if (loadings.length){
+    if (loadings.length) {
         loadings[0].remove();
     }
 }
 
 //RECUPERAR SENHA
-function recoverPasswordButton(){
+function recoverPasswordButton() {
     showLoading();
     firebase.auth().sendPasswordResetEmail(form.emailLogin().value).then(() => {
         hideLoading();
@@ -180,7 +180,7 @@ closeButton.forEach(button => {
         form.confirmPassword().value = "";
         form.emailSignUp().value = "";
         form.passwordSignUp().value = "";
-        })
+    })
 })
 togglePassword.forEach(button => {
     button.addEventListener('click', function () {
@@ -191,7 +191,7 @@ togglePassword.forEach(button => {
     })
 })
 
-function accountLogin(){
+function accountLogin() {
     showLoading();
     firebase.auth().signInWithEmailAndPassword(form.emailLogin().value, form.passwordLogin().value).then(() => {
         hideLoading();
@@ -202,17 +202,17 @@ function accountLogin(){
         alert(getErrorMessage(error));
     });
 }
-    function getErrorMessage(error){
-    if (error.code == "auth/invalid-credential"){
+function getErrorMessage(error) {
+    if (error.code == "auth/invalid-credential") {
         return "Usuário nao encontrado";
     }
     return error.message;
 
 }
 
-function register(){
+function register() {
     showLoading();
-    
+
     const email = form.emailSignUp().value;
     const password = form.passwordSignUp().value;
     firebase.auth().createUserWithEmailAndPassword(
@@ -226,7 +226,7 @@ function register(){
         alert(getErrorMessage(error));
     })
 }
-function getErrorMessage(error){
+function getErrorMessage(error) {
     if (error.code == "auth/email-already-in-use") {
         return "Email já está em uso"
     }
@@ -236,8 +236,8 @@ function getErrorMessage(error){
     if (error.code == "auth/invalid-credential") {
         return "Login não encontrado no sistema"
     }
-    
-    
+
+
     return error.message;
 }
 const userEmailItem = document.getElementById('userEmail');
@@ -251,8 +251,8 @@ document.addEventListener("DOMContentLoaded", () => {
             userEmailItem.textContent = user.email;
             loginIcon.onclick = () => {
                 userMenu.classList.toggle('hidden');
-                };
-                logoutBtn.onclick = () => {
+            };
+            logoutBtn.onclick = () => {
                 firebase.auth().signOut().then(() => {
                     userMenu.classList.add('hidden');
                 });
@@ -264,9 +264,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 function logout() {
-    firebase.auth().signOut().then(()=> {
+    firebase.auth().signOut().then(() => {
         userMenu.classList.add('hidden');
-    }).catch(()=>{
+    }).catch(() => {
         alert('Erro ao fazer logout')
     })
 }
@@ -275,3 +275,5 @@ document.addEventListener('click', (event) => {
         userMenu.classList.add('hidden');
     }
 });
+
+//Formulario de doação

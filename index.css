@@ -199,9 +199,9 @@ button[disabled]{
     overflow: hidden;
 }
 
+#DonorSelection,
 #donationCompanyInfo,
-#donationCompanyInfo2,
-#donationCompanyInfo3 {
+#donationCompanyInfo2 {
     display: none;
 }
 
@@ -223,7 +223,7 @@ label {
     position: fixed;
     width: 100%;
     height: 100%;
-    display: flex;/* None: não ativo - flex:ativo*/
+    display: none;/* None: não ativo - flex:ativo*/
     justify-content: center;
     align-items: center;
     z-index: 1000;
@@ -231,24 +231,107 @@ label {
     /*Mudar isso para aparecer o login*/
     background-color: rgba(0, 0, 0, 0.7);
 }
-
-.DonorSelection {
+#DonorSelection {
     background-color: white;
     border-radius: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     padding: 30px;
-    width: 350px;
-    display: flex;
     justify-content: center;
     align-items: right;
     flex-direction: column;
-}
-
-.DonorSelection h1 {
-    font-size: 1.5rem;
+    font-size: 18px;
     text-align: center;
     margin-bottom: 25px;
     color: #333;
+    h2{
+        font-size: 25px;
+    }
+}
+#donationCompanyInfo{
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    h2{
+        font-size: 25px;
+    }
+    input{
+        background: transparent;
+        border: solid 1px black;
+        border-radius: 10px;
+        font-size: 20px;
+        width: 70%;
+        text-align: center;
+    }
+    label{
+        margin-top: 8px;
+    }
+}
+#donationCompanyInfo2{
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    h2{
+        font-size: 25px;
+    }
+    input{
+        background: transparent;
+        border: solid 1px black;
+        border-radius: 10px;
+        font-size: 20px;
+        width: 70%;
+        text-align: center;
+    }
+    label{
+        margin-top: 8px;
+    }
+    textarea {
+    width: 220px;
+    height: 100px;  
+    resize: none;     
+    }
+    select {
+    width: 200px;   /* largura */
+    height: 30px;   /* altura */
+    font-size: 16px; /* aumenta o texto dentro */
+    padding: 5px;   /* espaço interno */
+    }/* Chrome, Edge, Safari */
+    input[type="time"]::-webkit-calendar-picker-indicator,
+    input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    }
+    /* Firefox */
+    input[type="time"]::-moz-focus-inner,
+    input[type="date"]::-moz-focus-inner {
+    border: 0;
+    }
+}
+#donationCompanyInfo3{
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    h2{
+        font-size: 25px;
+    }
+    input{
+        background: transparent;
+        border: solid 1px black;
+        border-radius: 10px;
+        font-size: 20px;
+        width: 70%;
+        text-align: center;
+    }
+    label{
+        margin-top: 8px;
+    }
+    select {
+    width: 200px;   /* largura */
+    height: 30px;   /* altura */
+    font-size: 16px; /* aumenta o texto dentro */
+    padding: 5px;   /* espaço interno */
+    }
 }
 #NextButton{
     margin-top: 20px;
@@ -261,9 +344,28 @@ label {
     padding: 10px;
     cursor: pointer;
     width: 100%;
+    transition: background-color 0.3s ease;
 
 }
-
+#SendDonation{
+    margin-top: 20px;
+    background-color: #4CAF50; 
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+#SendDonation:hover {
+    background-color: red;
+}
+#NextButton:hover {
+    background-color: #1d5c20;
+}
 /*CSS pagina normal*/
 #openDonationBtn {
     font-weight: bold;
