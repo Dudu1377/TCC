@@ -9,7 +9,8 @@
 </head>
 
 <body>
-    <div class="containerDonation">
+    <button id="openDonationBtn">Seja a mudança</button>
+        <div class="containerDonation">
         <section id="Donation">
             <div id="DonorSelection">
                 <form>
@@ -22,7 +23,7 @@
                         <input type="radio" name="donorType" value="Company">
                         Empresa
                     </label>
-                    <button id="NextButton">Próximo</button>
+                    <button class="NextButton">Próximo</button>
                 </form>
             </div>
             <div id="donationCompanyInfo">
@@ -47,7 +48,7 @@
                     <label for="email">Email corporativo:</label>
                     <input type="text" id="email" placeholder="email@exemplo.com" name="email" required>
 
-                    <button id="NextButton">Próximo</button>
+                    <button class="NextButton">Próximo</button>
                 </form>
             </div>
             <div id="donationCompanyInfo2">
@@ -79,7 +80,7 @@
                     <label for="especialObservations">Observações Especiais:</label>
                     <textarea type="text" id="especialObservations" name="especialObservations"></textarea>
 
-                    <button id="NextButton">Próximo</button>
+                    <button class="NextButton">Próximo</button>
                 </form>
             </div>
             <div id="donationCompanyInfo3">
@@ -109,6 +110,7 @@
             </div>
         </section>
     </div>
+    <script src="script.js"></script>
 </body>
 
 </html>

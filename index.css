@@ -201,7 +201,8 @@ button[disabled]{
 
 #DonorSelection,
 #donationCompanyInfo,
-#donationCompanyInfo2 {
+#donationCompanyInfo2,
+#donationCompanyInfo3{
     display: none;
 }
 
@@ -226,7 +227,7 @@ label {
     display: none;/* None: não ativo - flex:ativo*/
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    z-index: 100000;
     opacity: 1000;
     /*Mudar isso para aparecer o login*/
     background-color: rgba(0, 0, 0, 0.7);
@@ -333,7 +334,7 @@ label {
     padding: 5px;   /* espaço interno */
     }
 }
-#NextButton{
+.NextButton{
     margin-top: 20px;
     background-color: #4CAF50;
     color: white;
