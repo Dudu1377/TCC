@@ -10,12 +10,13 @@
 
 <body>
     <button id="openDonationBtn">Seja a mudança</button>
-        <div class="containerDonation">
+    <div class="containerDonation">
         <section id="Donation">
-            <div id="DonorSelection">
+            <div id="DonorSelection" class="form-section active">
                 <form>
+                    <div class="close-pop-up">&times;</div>
+                    <h1>SELECIONE O TIPO DE DOADOR</h1>
                     <label>
-                        <h1>SELECIONE O TIPO DE DOADOR</h1>
                         <input type="radio" name="donorType" value="Independent">
                         Doador Independente
                     </label>
@@ -23,14 +24,12 @@
                         <input type="radio" name="donorType" value="Company">
                         Empresa
                     </label>
-                    <button class="NextButton">Próximo</button>
+                    <button type="button" class="NextButton" data-next="donationCompanyInfo">Próximo</button>
                 </form>
             </div>
-            <div id="donationCompanyInfo">
+            <div id="donationCompanyInfo" class="form-section">
                 <form>
-                    <div class="close-pop-up close-donation">
-                        &times;
-                    </div>
+                    <div class="close-pop-up">&times;</div>
                     <h2>INFORMAÇÕES BASICAS DO ESTABELECIMENTO</h2>
                     <label for="establishmentName">Nome do estabelecimento:</label>
                     <input type="text" id="establishmentName" name="establishmentName" required>
@@ -48,14 +47,13 @@
                     <label for="email">Email corporativo:</label>
                     <input type="text" id="email" placeholder="email@exemplo.com" name="email" required>
 
-                    <button class="NextButton">Próximo</button>
+                    <button type="button" class="NextButton" data-next="donationCompanyInfo2">Próximo</button>
+                    <button type="button" class="PrevButton" data-prev="DonorSelection">Voltar</button>
                 </form>
             </div>
-            <div id="donationCompanyInfo2">
+            <div id="donationCompanyInfo2" class="form-section">
                 <form>
-                    <div class="close-pop-up close-donation">
-                        &times;
-                    </div>
+                    <div class="close-pop-up">&times;</div>
                     <h2>DETALHES DA DOAÇÃO</h2>
                     <label for="foodTypes">Tipo de alimento</label>
                     <select id="foodType" name="foodType" required>
@@ -76,18 +74,18 @@
                     <label>Fim:</label>
                     <input type="time" name="end">
                     <label for="conservationInstructions">Instruções de conservação:</label>
-                    <textarea type="text" id="conservationInstructions" name="conservationInstructions" required></textarea>
+                    <textarea type="text" id="conservationInstructions" name="conservationInstructions"
+                        required></textarea>
                     <label for="especialObservations">Observações Especiais:</label>
                     <textarea type="text" id="especialObservations" name="especialObservations"></textarea>
 
-                    <button class="NextButton">Próximo</button>
+                    <button type="button" class="NextButton" data-next="donationCompanyInfo3">Próximo</button>
+                    <button type="button" class="PrevButton" data-prev="donationCompanyInfo">Voltar</button>
                 </form>
             </div>
-            <div id="donationCompanyInfo3">
+            <div id="donationCompanyInfo3" class="form-section">
                 <form>
-                    <div class="close-pop-up close-donation">
-                        &times;
-                    </div>
+                    <div class="close-pop-up">&times;</div>
                     <h2>INFORMAÇÕES LOGÍSTICAS</h2>
                     <label for="deliveryMode">Forma de entrega</label>
                     <select id="deliveryMode" name="deliveryMode" required>
@@ -106,11 +104,75 @@
                     <label for="equipmentNeeded">Equipamentos Necessários:</label>
                     <input type="text" id="equipmentNeeded" name="equipmentNeeded">
                     <button type="submit" id="SendDonation">Enviar Doação</button>
+                    <button type="button" class="PrevButton" data-prev="donationCompanyInfo2">Voltar</button>
                 </form>
             </div>
         </section>
     </div>
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const openDonationBtn = document.getElementById('openDonationBtn');
+            const containerDonation = document.querySelector('.containerDonation');
+            const closeButtons = document.querySelectorAll('.close-pop-up');
+            const firstSection = document.querySelector('#DonorSelection');
+            const formSections = document.querySelectorAll('.form-section');
+            const nextButtons = document.querySelectorAll('.NextButton');
+            const prevButtons = document.querySelectorAll('.PrevButton');
+            // Abrir o formulário (mostra só a primeira seção)
+            function hideAllSections() {
+                formSections.forEach(section => section.classList.remove('active'));
+            }
+            openDonationBtn.addEventListener('click', function () {
+                containerDonation.style.display = 'block';
+
+                // Primeiro oculta todas as seções
+                formSections.forEach(section => {
+                    section.classList.remove('active');
+                });
+
+                // Depois mostra apenas a primeira
+                firstSection.classList.add('active');
+            });
+            // Fechar o formulário
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    console.log('Fechando formulário');
+                    containerDonation.style.display = 'none';
+                });
+            });
+
+            // Navegação entre seções (Avançar)
+            nextButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const nextSectionId = button.getAttribute('data-next');
+                    console.log('Indo para a seção:', nextSectionId);
+
+                    formSections.forEach(section => section.classList.remove('active'));
+                    document.getElementById(nextSectionId).classList.add('active');
+                });
+            });
+
+            // Navegação entre seções (Voltar)
+            prevButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const prevSectionId = button.getAttribute('data-prev');
+                    console.log('Voltando para a seção:', prevSectionId);
+
+                    formSections.forEach(section => section.classList.remove('active'));
+                    document.getElementById(prevSectionId).classList.add('active');
+                });
+            });
+
+            // Submissão do formulário
+            document.getElementById('SendDonation')?.addEventListener('click', function (e) {
+                e.preventDefault();
+                console.log('Formulário enviado!');
+                // Aqui você pode adicionar a lógica para enviar os dados
+                alert('Obrigado por sua doação! Entraremos em contato em breve.');
+                containerDonation.style.display = 'none';
+            });
+        });
+    </script>
 </body>
 
 </html>

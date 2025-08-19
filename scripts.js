@@ -277,3 +277,10 @@ document.addEventListener('click', (event) => {
 });
 
 //Formulario de doação
+const openDonationBtn = document.getElementById('openDonationBtn');
+const containerDonation = document.querySelector('.containerDonation');
+console.log('Script carregado');
+openDonationBtn.addEventListener('click', function() {
+    console.log('Botão clicado, mostrando o formulário');
+    containerDonation.style.display = 'block'; // Mostra o formulário
+});
