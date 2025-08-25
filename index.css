@@ -206,12 +206,6 @@ button[disabled] {
     overflow: hidden;
 }
 
-#donationCompanyInfo,
-#donationCompanyInfo2,
-#donationCompanyInfo3 {
-    display: none;
-}
-
 .form-section {
     display: none;
 }
