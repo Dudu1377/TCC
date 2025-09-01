@@ -284,3 +284,46 @@ openDonationBtn.addEventListener('click', function() {
     console.log('Botão clicado, mostrando o formulário');
     containerDonation.style.display = 'block'; // Mostra o formulário
 });
+document.addEventListener('DOMContentLoaded', function () {
+    const openDonationBtn = document.getElementById('openDonationBtn');
+    const containerDonation = document.querySelector('.containerDonation');
+    const closeButtons = document.querySelectorAll('.close-pop-up');
+    const firstSection = document.querySelector('#DonorSelection');
+    const formSections = document.querySelectorAll('.form-section');
+    const nextButtons = document.querySelectorAll('.NextButton');
+    const prevButtons = document.querySelectorAll('.PrevButton');
+
+    openDonationBtn.addEventListener('click', function () {
+        containerDonation.style.display = 'block';
+        formSections.forEach(section => section.classList.remove('active'));
+        firstSection.classList.add('active');
+    });
+
+    closeButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            containerDonation.style.display = 'none';
+        });
+    });
+
+    nextButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const nextSectionId = button.getAttribute('data-next');
+            formSections.forEach(section => section.classList.remove('active'));
+            document.getElementById(nextSectionId).classList.add('active');
+        });
+    });
+
+    prevButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const prevSectionId = button.getAttribute('data-prev');
+            formSections.forEach(section => section.classList.remove('active'));
+            document.getElementById(prevSectionId).classList.add('active');
+        });
+    });
+
+    document.getElementById('SendDonation')?.addEventListener('click', function (e) {
+        e.preventDefault();
+        alert('Obrigado por sua doação! Entraremos em contato em breve.');
+        containerDonation.style.display = 'none';
+    });
+});

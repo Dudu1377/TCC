@@ -237,18 +237,16 @@ label {
 }
 
 .containerDonation {
-    display: none;
+    display: none; /* Só aparece quando clicado */
     position: fixed;
-    width: 100%;
-    height: 100%;
-    display: none;
-    /* None: não ativo - flex:ativo*/
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1001; /* maior que o resto */
     justify-content: center;
     align-items: center;
-    z-index: 100000;
-    opacity: 1000;
-    /*Mudar isso para aparecer o login*/
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0,0,0,0.7);
 }
 
 #DonorSelection {
