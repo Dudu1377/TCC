@@ -214,12 +214,20 @@ button[disabled] {
     display: block;
 }
 
-.close-pop-up {
+.form-section form {
+    position: relative;
+}
+
+.close-donation-pop-up {
     position: absolute;
-    top: 10px;
-    right: 20px;
+    top: -27px;
+    right: -15px;
     font-size: 24px;
     cursor: pointer;
+    background: transparent;
+    border: none;
+    color: #333;
+    z-index: 2;
 }
 
 label {
@@ -296,6 +304,8 @@ label {
     border-radius: 20px;
     padding: 30px;
     text-align: center;
+    max-height: 80vh; /* Limita a altura máxima */
+    overflow-y: auto;
 
     h2 {
         font-size: 25px;
@@ -315,15 +325,15 @@ label {
     }
 
     textarea {
-        width: 220px;
-        height: 100px;
+        width: 240px;
+        height: 70px;
         resize: none;
     }
 
     select {
         width: 200px;
         /* largura */
-        height: 30px;
+        height: 38px;
         /* altura */
         font-size: 16px;
         /* aumenta o texto dentro */
@@ -370,7 +380,7 @@ label {
     select {
         width: 200px;
         /* largura */
-        height: 30px;
+        height: 38px;
         /* altura */
         font-size: 16px;
         /* aumenta o texto dentro */
@@ -389,14 +399,13 @@ label {
     border-radius: 10px;
     padding: 10px;
     cursor: pointer;
-    width: 100%;
+    width: 70%;
     transition: background-color 0.3s ease;
 
 }
-
-#SendDonation {
-    margin-top: 20px;
-    background-color: #4CAF50;
+.PrevButton{
+    margin-top: 10px;
+    background-color: #888888;
     color: white;
     font-size: 18px;
     font-weight: bold;
@@ -404,12 +413,27 @@ label {
     border-radius: 10px;
     padding: 10px;
     cursor: pointer;
-    width: 100%;
+    width: 30%;
+    transition: background-color 0.3s ease;
+
+}
+
+#SendDonation {
+    margin-top: 20px;
+    background-color: red;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    width: 70%;
     transition: background-color 0.3s ease;
 }
 
 #SendDonation:hover {
-    background-color: red;
+    background-color: #4CAF50;
 }
 
 #NextButton:hover {

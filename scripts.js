@@ -253,7 +253,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 userMenu.classList.toggle('hidden');
             };
             logoutBtn.onclick = () => {
+                showLoading();
                 firebase.auth().signOut().then(() => {
+                    hideLoading();
                     userMenu.classList.add('hidden');
                 });
             };
@@ -287,7 +289,7 @@ openDonationBtn.addEventListener('click', function() {
 document.addEventListener('DOMContentLoaded', function () {
     const openDonationBtn = document.getElementById('openDonationBtn');
     const containerDonation = document.querySelector('.containerDonation');
-    const closeButtons = document.querySelectorAll('.close-pop-up');
+    const closeButtons = document.querySelectorAll('.close-donation-pop-up');
     const firstSection = document.querySelector('#DonorSelection');
     const formSections = document.querySelectorAll('.form-section');
     const nextButtons = document.querySelectorAll('.NextButton');
@@ -297,11 +299,13 @@ document.addEventListener('DOMContentLoaded', function () {
         containerDonation.style.display = 'block';
         formSections.forEach(section => section.classList.remove('active'));
         firstSection.classList.add('active');
+        document.body.classList.add('no-scroll');
     });
 
     closeButtons.forEach(button => {
         button.addEventListener('click', function () {
             containerDonation.style.display = 'none';
+            document.body.classList.remove('no-scroll'); 
         });
     });
 
