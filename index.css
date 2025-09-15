@@ -889,6 +889,22 @@ section {
         max-width: 1000px;
         margin: 0 auto;
     }
+    .container-map1, .container-map2 {
+    
+    width: 48%;
+    margin: 1%;
+    display: inline-block;
+    vertical-align: top;
+    }
+
+    @media (max-width: 900px) {
+    .container-map1, .container-map2 {
+        width: 100%;
+        margin: 10px 0;
+        display: block;
+        
+        }
+    }
 
     .box-Statistics,
     .box-Goal,
@@ -908,7 +924,20 @@ section {
 
     .box-img img {
         width: 250px;
+        height: 210px;
+    }
+    .box-img2 img {
+        width: 250px;
         height: 250px;
+    }
+    .box-img3 img {
+        width: 250px;
+        height: 250px;
+    }
+    .box-img4 img {
+        width: 200px;
+        height: 200px;
+        margin-top: 30px;
     }
 }
 
