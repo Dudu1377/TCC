@@ -215,10 +215,16 @@ function register() {
 
     const email = form.emailSignUp().value;
     const password = form.passwordSignUp().value;
+    const userType = document.querySelector('input[name="userType"]:checked').value;
     firebase.auth().createUserWithEmailAndPassword(
         email, password
-    ).then(() => {
+    ).then((userCredential) => {
         hideLoading();
+        const user = userCredential.user;
+        firebase.firestore().collection('users').doc(user.uid).set({
+            email: email,
+            userType: userType,
+        });
         popUpContainer.style.display = 'none';
         document.body.classList.remove('no-scroll');
     }).catch(error => {
@@ -247,6 +253,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const loginIcon = document.getElementById('LoginImage');
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
+            firebase.firestore().collection('users').doc(user.uid).get().then(doc => {
+            if (doc.exists && doc.data().userType === 'Company') {
+                // Exibe menu e section para empresas
+                document.getElementById('companyDonationsMenu').style.display = 'inline-block';
+                document.getElementById('CompanyDonations').style.display = 'block';
+            }
+        });
             loginIcon.src = "./Img/Login Logado sem fundo.png";
             userEmailItem.textContent = user.email;
             loginIcon.onclick = () => {
@@ -262,6 +275,8 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             loginIcon.src = "./Img/Login sem fundo.png"
             loginIcon.onclick = abrirPopupLogin;
+            document.getElementById('companyDonationsMenu').style.display = 'none';
+            document.getElementById('CompanyDonations').style.display = 'none';
         }
     });
 });
@@ -282,7 +297,7 @@ document.addEventListener('click', (event) => {
 const openDonationBtn = document.getElementById('openDonationBtn');
 const containerDonation = document.querySelector('.containerDonation');
 console.log('Script carregado');
-openDonationBtn.addEventListener('click', function() {
+openDonationBtn.addEventListener('click', function () {
     console.log('Botão clicado, mostrando o formulário');
     containerDonation.style.display = 'block'; // Mostra o formulário
 });
@@ -305,7 +320,7 @@ document.addEventListener('DOMContentLoaded', function () {
     closeButtons.forEach(button => {
         button.addEventListener('click', function () {
             containerDonation.style.display = 'none';
-            document.body.classList.remove('no-scroll'); 
+            document.body.classList.remove('no-scroll');
         });
     });
 

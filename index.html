@@ -34,6 +34,7 @@
                 <li><a href="#Why">Why ?</a></li>
                 <li><a href="#Where">Locations</a></li>
                 <li><a href="#Us">About us</a></li>
+                <li id="companyDonationsMenu" style="display:none;"><a href="#CompanyDonations">Doações Empresas</a></li>
             </ul>
             <div class="Login">
                 <img src="./Img/Login sem fundo.png" alt="Login" id="LoginImage">
@@ -65,6 +66,14 @@
                         <input placeholder="Confirm your password" type="password" id="confirmPassword"
                             oninput="validateFieldsSignUp()" class="password" required>
                         <img width="20" height="20" src="./Img/olho.png" id="togglePassword" class="togglePassword">
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="userType" value="Company"> Empresa
+                        </label>
+                        <label>
+                            <input type="radio" name="userType" value="Independent" checked> Independente
+                        </label>
                     </div>
                     <div class="input">
                         <button type="button" class="submit-button" id="SignUpButton" disabled="true"
@@ -187,104 +196,104 @@
     </section>
     <button id="openDonationBtn">Seja a mudança</button>
     <div class="containerDonation">
-    <section id="Donation">
-        <div id="DonorSelection" class="form-section active">
-            <form>
-                <h1>SELECIONE O TIPO DE DOADOR</h1>
-                <div class="close-donation-pop-up">&times;</div>
-                <label>
-                    <input type="radio" name="donorType" value="Independent">
-                    Doador Independente
-                </label>
-                <label>
-                    <input type="radio" name="donorType" value="Company">
-                    Empresa
-                </label>
-                <button type="button" class="NextButton" data-next="donationCompanyInfo">Próximo</button>
-            </form>
-        </div>
-        <div id="donationCompanyInfo" class="form-section">
-            <form>
-                <div class="close-donation-pop-up">&times;</div>
-                <h2>INFORMAÇÕES BASICAS DO ESTABELECIMENTO</h2>
-                <label for="establishmentName">Nome do estabelecimento:</label>
-                <input type="text" id="establishmentName" name="establishmentName" required>
+        <section id="Donation">
+            <div id="DonorSelection" class="form-section active">
+                <form>
+                    <h1>SELECIONE O TIPO DE DOADOR</h1>
+                    <div class="close-donation-pop-up">&times;</div>
+                    <label>
+                        <input type="radio" name="donorType" value="Independent">
+                        Doador Independente
+                    </label>
+                    <label>
+                        <input type="radio" name="donorType" value="Company">
+                        Empresa
+                    </label>
+                    <button type="button" class="NextButton" data-next="donationCompanyInfo">Próximo</button>
+                </form>
+            </div>
+            <div id="donationCompanyInfo" class="form-section">
+                <form>
+                    <div class="close-donation-pop-up">&times;</div>
+                    <h2>INFORMAÇÕES BASICAS DO ESTABELECIMENTO</h2>
+                    <label for="establishmentName">Nome do estabelecimento:</label>
+                    <input type="text" id="establishmentName" name="establishmentName" required>
 
-                <label for="CNPJ">CNPJ:</label>
-                <input type="text" id="CNPJ" name="CNPJ" placeholder="00.000.000/0000-00" required
-                    pattern="\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}" title="Formato: 00.000.000/0000-00">
+                    <label for="CNPJ">CNPJ:</label>
+                    <input type="text" id="CNPJ" name="CNPJ" placeholder="00.000.000/0000-00" required
+                        pattern="\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}" title="Formato: 00.000.000/0000-00">
 
-                <label for="address">Endereço completo:</label>
-                <input type="text" id="address" name="address" required>
+                    <label for="address">Endereço completo:</label>
+                    <input type="text" id="address" name="address" required>
 
-                <label for="phone">Telefone para contato:</label>
-                <input type="text" id="phone" placeholder="(00) 0000000-0000" name="phone" required>
+                    <label for="phone">Telefone para contato:</label>
+                    <input type="text" id="phone" placeholder="(00) 0000000-0000" name="phone" required>
 
-                <label for="email">Email corporativo:</label>
-                <input type="text" id="email" placeholder="email@exemplo.com" name="email" required>
+                    <label for="email">Email corporativo:</label>
+                    <input type="text" id="email" placeholder="email@exemplo.com" name="email" required>
 
-                <button type="button" class="NextButton" data-next="donationCompanyInfo2">Próximo</button>
-                <button type="button" class="PrevButton" data-prev="DonorSelection">Voltar</button>
-            </form>
-        </div>
-        <div id="donationCompanyInfo2" class="form-section">
-            <form>
-                <div class="close-donation-pop-up">&times;</div>
-                <h2>DETALHES DA DOAÇÃO</h2>
-                <label for="foodTypes">Tipo de alimento</label>
-                <select id="foodType" name="foodType" required>
-                    <option value="">Selecione</option>
-                    <option value="refeicoes_prontas">Refeições Prontas</option>
-                    <option value="ingredientes">Ingredientes</option>
-                    <option value="lanches">Lanches</option>
-                </select>
-                <label for="quantity">Quantidade estimada:</label>
-                <input type="number" id="quantity" min="0" name="quantity" placeholder="Kg" required>
-                <label for="preparationDate">Data de preparo:</label>
-                <input type="date" id="preparationDate" name="preparationDate" required>
-                <label for="expirationDate">Data de validade:</label>
-                <input type="date" id="expirationDate" name="expirationDate" required>
-                <h3><label for="availabilityTime">Horario de disponibilidade:</label></h3>
-                <label>Início:</label>
-                <input type="time" name="beginning">
-                <label>Fim:</label>
-                <input type="time" name="end">
-                <label for="conservationInstructions">Instruções de conservação:</label>
-                <textarea type="text" id="conservationInstructions" name="conservationInstructions"
-                    required></textarea>
-                <label for="especialObservations">Observações Especiais:</label>
-                <textarea type="text" id="especialObservations" name="especialObservations"></textarea>
+                    <button type="button" class="NextButton" data-next="donationCompanyInfo2">Próximo</button>
+                    <button type="button" class="PrevButton" data-prev="DonorSelection">Voltar</button>
+                </form>
+            </div>
+            <div id="donationCompanyInfo2" class="form-section">
+                <form>
+                    <div class="close-donation-pop-up">&times;</div>
+                    <h2>DETALHES DA DOAÇÃO</h2>
+                    <label for="foodTypes">Tipo de alimento</label>
+                    <select id="foodType" name="foodType" required>
+                        <option value="">Selecione</option>
+                        <option value="refeicoes_prontas">Refeições Prontas</option>
+                        <option value="ingredientes">Ingredientes</option>
+                        <option value="lanches">Lanches</option>
+                    </select>
+                    <label for="quantity">Quantidade estimada:</label>
+                    <input type="number" id="quantity" min="0" name="quantity" placeholder="Kg" required>
+                    <label for="preparationDate">Data de preparo:</label>
+                    <input type="date" id="preparationDate" name="preparationDate" required>
+                    <label for="expirationDate">Data de validade:</label>
+                    <input type="date" id="expirationDate" name="expirationDate" required>
+                    <h3><label for="availabilityTime">Horario de disponibilidade:</label></h3>
+                    <label>Início:</label>
+                    <input type="time" name="beginning">
+                    <label>Fim:</label>
+                    <input type="time" name="end">
+                    <label for="conservationInstructions">Instruções de conservação:</label>
+                    <textarea type="text" id="conservationInstructions" name="conservationInstructions"
+                        required></textarea>
+                    <label for="especialObservations">Observações Especiais:</label>
+                    <textarea type="text" id="especialObservations" name="especialObservations"></textarea>
 
-                <button type="button" class="NextButton" data-next="donationCompanyInfo3">Próximo</button>
-                <button type="button" class="PrevButton" data-prev="donationCompanyInfo">Voltar</button>
-            </form>
-        </div>
-        <div id="donationCompanyInfo3" class="form-section">
-            <form>
-                <div class="close-donation-pop-up">&times;</div>
-                <h2>INFORMAÇÕES LOGÍSTICAS</h2>
-                <label for="deliveryMode">Forma de entrega</label>
-                <select id="deliveryMode" name="deliveryMode" required>
-                    <option value="">Selecione</option>
-                    <option value="coleta">Coleta no Local</option>
-                    <option value="entrega">Entrega</option>
-                </select>
-                <label for="donationFrequency">Frequência da doação</label>
-                <select id="donationFrequency" name="donationFrequency" required>
-                    <option value="">Selecione</option>
-                    <option value="pontual">Pontual</option>
-                    <option value="diaria">Diária</option>
-                    <option value="semanal">Semanal</option>
-                    <option value="mensal">Mensal</option>
-                </select>
-                <label for="equipmentNeeded">Equipamentos Necessários:</label>
-                <input type="text" id="equipmentNeeded" name="equipmentNeeded">
-                <button type="submit" id="SendDonation">Enviar Doação</button>
-                <button type="button" class="PrevButton" data-prev="donationCompanyInfo2">Voltar</button>
-            </form>
-        </div>
-    </section>
-</div>
+                    <button type="button" class="NextButton" data-next="donationCompanyInfo3">Próximo</button>
+                    <button type="button" class="PrevButton" data-prev="donationCompanyInfo">Voltar</button>
+                </form>
+            </div>
+            <div id="donationCompanyInfo3" class="form-section">
+                <form>
+                    <div class="close-donation-pop-up">&times;</div>
+                    <h2>INFORMAÇÕES LOGÍSTICAS</h2>
+                    <label for="deliveryMode">Forma de entrega</label>
+                    <select id="deliveryMode" name="deliveryMode" required>
+                        <option value="">Selecione</option>
+                        <option value="coleta">Coleta no Local</option>
+                        <option value="entrega">Entrega</option>
+                    </select>
+                    <label for="donationFrequency">Frequência da doação</label>
+                    <select id="donationFrequency" name="donationFrequency" required>
+                        <option value="">Selecione</option>
+                        <option value="pontual">Pontual</option>
+                        <option value="diaria">Diária</option>
+                        <option value="semanal">Semanal</option>
+                        <option value="mensal">Mensal</option>
+                    </select>
+                    <label for="equipmentNeeded">Equipamentos Necessários:</label>
+                    <input type="text" id="equipmentNeeded" name="equipmentNeeded">
+                    <button type="submit" id="SendDonation">Enviar Doação</button>
+                    <button type="button" class="PrevButton" data-prev="donationCompanyInfo2">Voltar</button>
+                </form>
+            </div>
+        </section>
+    </div>
     <section class="Why" id="Why">
         <h2 class="Title">Why <span>Sharing </span></h2>
         <div class="box-container">
@@ -304,7 +313,7 @@
             </div>
             <div class="box-Goal">
                 <div class="box-img2">
-                    <img src="./Img/solidario.png" alt="Why-Sharing">
+                    <img src="./Img/solidariedade.png" alt="Why-Sharing">
                 </div>
                 <div class="content">
                     <h2>Solidarity Network</h2>
@@ -346,16 +355,16 @@
     <section class="Where" id="Where">
         <h2 class="Title"><span>Locals to </span>Share</h2>
         <div class="container-map1">
-             <h3>Locais que recebem doações (ONGs, instituições)</h3>
+            <h3>Locais que recebem doações (ONGs, instituições)</h3>
             <iframe class="map1"
                 src="https://www.google.com/maps/d/u/0/embed?mid=15yoC53L4b0nFnJiUSlWTO-5lCC1XNxg&ehbc=2E312F&noprof=1"
                 width="640" height="480"></iframe>
         </div>
         <div class="container-map2">
-                        <h3>Locais que doam alimentos (restaurantes, empresas)</h3>
+            <h3>Locais que doam alimentos (restaurantes, empresas)</h3>
             <iframe class="map2"
                 src="https://www.google.com/maps/d/u/0/embed?mid=1dWjcxmArgfHbfAG2vGaGlbqr-PkSxsA&ehbc=2E312F&noprof=1"
-               width="640" height="480"></iframe>
+                width="640" height="480"></iframe>
         </div>
     </section>
     <section class="Us" id="Us">
@@ -369,7 +378,7 @@
                             src="./Img/Instagram.png" alt="Icon Instagram"></a>
                     <a href="https://wa.me/5519996701623" target="_blank" class="icon whatsapp"><img
                             src="./Img/Whatsapp.png" alt="icon WhatsApp"></a>
-                    <a href="" target="_blank" class="icon Linkedin"><img src="./Img/Linkedin.png"
+                    <a href="https://www.linkedin.com/in/eduardodetoledo/" target="_blank" class="icon Linkedin"><img src="./Img/Linkedin.png"
                             alt="icon Linkedin"></a>
                     <a href="mailto:dududetoledo@gmail.com" class="icon email"><img src="./Img/Gmail.png"
                             alt="icon email"></a>
@@ -383,7 +392,7 @@
                             src="./Img/Instagram.png" alt="Icon Instagram"></a>
                     <a href="https://wa.me/5519993552697" target="_blank" class="icon whatsapp"><img
                             src="./Img/Whatsapp.png" alt="icon WhatsApp"></a>
-                    <a href="" target="_blank" class="icon Linkedin"><img src="./Img/Linkedin.png"
+                    <a href="https://www.linkedin.com/in/gabriel-fiorini-silva-22b28b380/" target="_blank" class="icon Linkedin"><img src="./Img/Linkedin.png"
                             alt="icon Linkedin"></a>
                     <a href="mailto:gabriel.fiorinisilva@gmail.com" class="icon email"><img src="./Img/Gmail.png"
                             alt="icon email"></a>
@@ -391,8 +400,15 @@
             </div>
         </div>
     </section>
+    <section class="CompanyDonations" id="CompanyDonations" style="display:none;">
+        <h2>Doações de Empresas</h2>
+        <div id="companyDonationsList">
+
+        </div>
+    </section>
     <script src="https://www.gstatic.com/firebasejs/11.10.0/firebase-app-compat.js"> </script>
     <script src="https://www.gstatic.com/firebasejs/11.10.0/firebase-auth-compat.js"> </script>
+    <script src="https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore-compat.js"></script>
     <script>
         const firebaseConfig = {
             apiKey: "AIzaSyCac0XoR4OzM-wBcfZUcpwD7A_7mH7aUb4",
@@ -406,4 +422,5 @@
     </script>
     <script src="scripts.js"></script>
 </body>
+
 </html>

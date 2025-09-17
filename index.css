@@ -56,7 +56,7 @@
 
 .pop-up-create {
     width: 350px;
-    height: 450px;
+    height: 485px;
     background: white;
     border: 2px solid #051f0f;
     backdrop-filter: blur(20px);
@@ -69,6 +69,12 @@
         font-size: 40px;
         text-align: center;
     }
+}
+.radio {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    font-size: 16px;
 }
 
 .pop-up-Sign-up {
@@ -237,24 +243,26 @@ label {
 
 #Donation {
     display: flex;
-    flex-direction: column;   
-    align-items: center;    
-    justify-content: center;    
-    min-height: 100vh;   
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
     gap: 20px;
 }
 
 .containerDonation {
-    display: none; /* Só aparece quando clicado */
+    display: none;
+    /* Só aparece quando clicado */
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 1001; /* maior que o resto */
+    z-index: 1001;
+    /* maior que o resto */
     justify-content: center;
     align-items: center;
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 #DonorSelection {
@@ -304,7 +312,8 @@ label {
     border-radius: 20px;
     padding: 30px;
     text-align: center;
-    max-height: 80vh; /* Limita a altura máxima */
+    max-height: 80vh;
+    /* Limita a altura máxima */
     overflow-y: auto;
 
     h2 {
@@ -403,7 +412,8 @@ label {
     transition: background-color 0.3s ease;
 
 }
-.PrevButton{
+
+.PrevButton {
     margin-top: 10px;
     background-color: #888888;
     color: white;
@@ -889,20 +899,24 @@ section {
         max-width: 1000px;
         margin: 0 auto;
     }
-    .container-map1, .container-map2 {
-    
-    width: 48%;
-    margin: 1%;
-    display: inline-block;
-    vertical-align: top;
+
+    .container-map1,
+    .container-map2 {
+
+        width: 48%;
+        margin: 1%;
+        display: inline-block;
+        vertical-align: top;
     }
 
     @media (max-width: 900px) {
-    .container-map1, .container-map2 {
-        width: 100%;
-        margin: 10px 0;
-        display: block;
-        
+
+        .container-map1,
+        .container-map2 {
+            width: 100%;
+            margin: 10px 0;
+            display: block;
+
         }
     }
 
@@ -923,17 +937,20 @@ section {
     }
 
     .box-img img {
-        width: 250px;
+        width: 210px;
         height: 210px;
     }
+
     .box-img2 img {
         width: 250px;
         height: 250px;
     }
+
     .box-img3 img {
         width: 250px;
         height: 250px;
     }
+
     .box-img4 img {
         width: 200px;
         height: 200px;
