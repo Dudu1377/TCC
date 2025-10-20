@@ -249,37 +249,6 @@ function getErrorMessage(error) {
 const userEmailItem = document.getElementById('userEmail');
 const userMenu = document.getElementById('userMenu');
 const logoutBtn = document.getElementById('logoutBtn');
-document.addEventListener("DOMContentLoaded", () => {
-    const loginIcon = document.getElementById('LoginImage');
-    firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-            firebase.firestore().collection('users').doc(user.uid).get().then(doc => {
-            if (doc.exists && doc.data().userType === 'Company') {
-                // Exibe menu e section para empresas
-                document.getElementById('companyDonationsMenu').style.display = 'inline-block';
-                document.getElementById('CompanyDonations').style.display = 'block';
-            }
-        });
-            loginIcon.src = "./Img/Login Logado sem fundo.png";
-            userEmailItem.textContent = user.email;
-            loginIcon.onclick = () => {
-                userMenu.classList.toggle('hidden');
-            };
-            logoutBtn.onclick = () => {
-                showLoading();
-                firebase.auth().signOut().then(() => {
-                    hideLoading();
-                    userMenu.classList.add('hidden');
-                });
-            };
-        } else {
-            loginIcon.src = "./Img/Login sem fundo.png"
-            loginIcon.onclick = abrirPopupLogin;
-            document.getElementById('companyDonationsMenu').style.display = 'none';
-            document.getElementById('CompanyDonations').style.display = 'none';
-        }
-    });
-});
 function logout() {
     firebase.auth().signOut().then(() => {
         userMenu.classList.add('hidden');
@@ -342,7 +311,187 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.getElementById('SendDonation')?.addEventListener('click', function (e) {
         e.preventDefault();
-        alert('Obrigado por sua doação! Entraremos em contato em breve.');
         containerDonation.style.display = 'none';
+    });
+});
+
+async function sendDonation(e) {
+    if (e && typeof e.preventDefault === 'function') e.preventDefault();
+
+    const foodTypeEl = document.getElementById('foodType');
+    const quantityEl = document.getElementById('quantity');
+    const establishmentEl = document.getElementById('establishmentName');
+    const phoneEl = document.getElementById('phone'); // novo
+    const establishmentEmailEl = document.getElementById('establishmentEmail'); // novo
+
+    const foodType = foodTypeEl ? foodTypeEl.value.trim() : '';
+    const quantity = quantityEl ? Number(quantityEl.value) : 0;
+    const establishmentName = establishmentEl ? establishmentEl.value.trim() : '';
+    const contactPhone = phoneEl ? phoneEl.value.trim() : '';
+    const contactEmail = establishmentEmailEl ? establishmentEmailEl.value.trim() : '';
+
+    if (!foodType || !quantity) {
+        alert('Preencha o tipo de alimento e a quantidade.');
+        return;
+    }
+
+    const user = firebase.auth().currentUser;
+    if (!user) {
+        alert('Faça login para enviar a doação.');
+        return;
+    }
+
+    try {
+        showLoading();
+
+        let donorType = 'Independent';
+        const userDoc = await firebase.firestore().collection('users').doc(user.uid).get();
+        if (userDoc.exists && userDoc.data().userType) {
+            donorType = userDoc.data().userType;
+        }
+
+        const data = {
+            donorType: donorType,
+            establishmentName: establishmentName,
+            foodType: foodType,
+            quantity: quantity,
+            donorUid: user.uid,
+            contactPhone: contactPhone,
+            contactEmail: contactEmail,
+            createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        };
+        const ref = await firebase.firestore().collection('donations').add(data);
+        hideLoading();
+        alert('Obrigado por sua doação! Entraremos em contato em breve.');
+        console.log('Donation saved:', ref.id, data);
+
+        if (foodTypeEl) foodTypeEl.value = '';
+        if (quantityEl) quantityEl.value = '';
+        if (establishmentEl) establishmentEl.value = '';
+        if (phoneEl) phoneEl.value = '';
+        if (establishmentEmailEl) establishmentEmailEl.value = '';
+    } catch (err) {
+        hideLoading();
+        console.error(err);
+        alert(err.message || 'Erro ao salvar doação.');
+    }
+}
+// conecta o evento ao botão (botão tem id="SendDonation" no HTML)
+document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('SendDonation');
+    if (btn) btn.addEventListener('click', sendDonation);
+});
+
+// ...existing code...
+
+// mantém referência para listener em tempo real (para poder cancelar)
+let companyDonationsUnsubscribe = null;
+
+function escapeHtml(str) {
+    return String(str || '').replace(/[&<>"'`=\/]/g, s =>
+        ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;', '/': '&#x2F;', '`': '&#x60;', '=': '&#x3D;' })[s]);
+}
+
+function renderCompanyDonationsSnapshot(snapshot) {
+    const list = document.getElementById('companyDonationsList');
+    if (!list) return;
+    if (snapshot.empty) {
+        list.innerHTML = '<p>Nenhuma doação encontrada.</p>';
+        return;
+    }
+
+    let html = '<table class="company-donations-table" style="width:90%;border-collapse:collapse;margin:auto;">' +
+        '<thead><tr style="text-align:left;border-bottom:1px solid #ccc;padding:8px;">' +
+        '<th>Estabelecimento</th><th>Alimento</th><th>Quantidade (Kg)</th><th>Tipo do Doador</th><th>Contato</th><th>Data</th></tr></thead><tbody>';
+
+    snapshot.forEach(doc => {
+        const d = doc.data();
+        const date = d.createdAt && d.createdAt.toDate ? d.createdAt.toDate() : (d.createdAt ? new Date(d.createdAt) : null);
+        const dateStr = date ? date.toLocaleString() : '';
+        const contactParts = [];
+        if (d.contactPhone) contactParts.push(escapeHtml(d.contactPhone));
+        if (d.contactEmail) contactParts.push(escapeHtml(d.contactEmail));
+        const contactStr = contactParts.length ? contactParts.join(' / ') : '—';
+
+        html += `<tr style="border-bottom:1px solid #eee;">
+            <td style="padding:8px;vertical-align:top;">${escapeHtml(d.establishmentName || '—')}</td>
+            <td style="padding:8px;vertical-align:top;">${escapeHtml(d.foodType || '—')}</td>
+            <td style="padding:8px;vertical-align:top;">${escapeHtml(d.quantity || '—')}</td>
+            <td style="padding:8px;vertical-align:top;">${escapeHtml(d.donorType || '—')}</td>
+            <td style="padding:8px;vertical-align:top;">${contactStr}</td>
+            <td style="padding:8px;vertical-align:top;">${escapeHtml(dateStr)}</td>
+        </tr>`;
+    });
+
+    html += '</tbody></table>';
+    list.innerHTML = html;
+}
+
+function loadCompanyDonations() {
+    // cancela listener anterior se existir
+    if (companyDonationsUnsubscribe) {
+        companyDonationsUnsubscribe();
+        companyDonationsUnsubscribe = null;
+    }
+
+    const list = document.getElementById('companyDonationsList');
+    if (list) list.innerHTML = '<p>Carregando doações...</p>';
+
+    // escuta toda a coleção donations (sem where para evitar índice composto)
+    companyDonationsUnsubscribe = firebase.firestore()
+        .collection('donations')
+        .orderBy('createdAt', 'desc')
+        .onSnapshot(renderCompanyDonationsSnapshot, err => {
+            console.error('Erro ao carregar doações:', err);
+            if (list) list.innerHTML = `<p>Erro ao carregar doações: ${escapeHtml(err.message || String(err))}</p>`;
+        });
+}
+
+// ...existing code...
+
+// Substituir/atualizar o trecho dentro do onAuthStateChanged para chamar loadCompanyDonations/clearCompanyDonations
+document.addEventListener("DOMContentLoaded", () => {
+    const loginIcon = document.getElementById('LoginImage');
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+            firebase.firestore().collection('users').doc(user.uid).get().then(doc => {
+                if (doc.exists && doc.data().userType === 'Company') {
+                    document.getElementById('companyDonationsMenu').style.display = 'inline-block';
+                    document.getElementById('CompanyDonations').style.display = 'block';
+                    document.body.classList.add('company-logged'); 
+                    loadCompanyDonations(); 
+                } else {
+                    document.getElementById('companyDonationsMenu').style.display = 'none';
+                    document.getElementById('CompanyDonations').style.display = 'none';
+                    document.body.classList.remove('company-logged'); 
+                    clearCompanyDonations();
+                }
+            }).catch(err => {
+                console.error('Erro ao ler usuário:', err);
+                document.getElementById('companyDonationsMenu').style.display = 'none';
+                document.getElementById('CompanyDonations').style.display = 'none';
+                clearCompanyDonations();
+            });
+
+            loginIcon.src = "./Img/Login Logado sem fundo.png";
+            userEmailItem.textContent = user.email;
+            loginIcon.onclick = () => {
+                userMenu.classList.toggle('hidden');
+            };
+            logoutBtn.onclick = () => {
+                showLoading();
+                firebase.auth().signOut().then(() => {
+                    hideLoading();
+                    userMenu.classList.add('hidden');
+                    clearCompanyDonations();
+                });
+            };
+        } else {
+            loginIcon.src = "./Img/Login sem fundo.png"
+            loginIcon.onclick = abrirPopupLogin;
+            document.getElementById('companyDonationsMenu').style.display = 'none';
+            document.getElementById('CompanyDonations').style.display = 'none';
+            clearCompanyDonations();
+        }
     });
 });

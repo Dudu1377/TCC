@@ -230,7 +230,7 @@
                     <input type="text" id="phone" placeholder="(00) 0000000-0000" name="phone" required>
 
                     <label for="email">Email corporativo:</label>
-                    <input type="text" id="email" placeholder="email@exemplo.com" name="email" required>
+                    <input type="text" id="establishmentEmail" placeholder="email@exemplo.com" name="email" required>
 
                     <button type="button" class="NextButton" data-next="donationCompanyInfo2">Próximo</button>
                     <button type="button" class="PrevButton" data-prev="DonorSelection">Voltar</button>
@@ -241,12 +241,7 @@
                     <div class="close-donation-pop-up">&times;</div>
                     <h2>DETALHES DA DOAÇÃO</h2>
                     <label for="foodTypes">Tipo de alimento</label>
-                    <select id="foodType" name="foodType" required>
-                        <option value="">Selecione</option>
-                        <option value="refeicoes_prontas">Refeições Prontas</option>
-                        <option value="ingredientes">Ingredientes</option>
-                        <option value="lanches">Lanches</option>
-                    </select>
+                    <input type="text" id="foodType" name="foodType" placeholder="Tipo de alimento" required>
                     <label for="quantity">Quantidade estimada:</label>
                     <input type="number" id="quantity" min="0" name="quantity" placeholder="Kg" required>
                     <label for="preparationDate">Data de preparo:</label>
@@ -401,9 +396,8 @@
         </div>
     </section>
     <section class="CompanyDonations" id="CompanyDonations" style="display:none;">
-        <h2>Doações de Empresas</h2>
+        <h2 class="Title">Company <span>Donations </span></h2>
         <div id="companyDonationsList">
-
         </div>
     </section>
     <script src="https://www.gstatic.com/firebasejs/11.10.0/firebase-app-compat.js"> </script>

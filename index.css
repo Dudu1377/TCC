@@ -1043,3 +1043,43 @@ section {
         font-weight: 900;
     }
 }
+.CompanyDonations {
+
+    .Title {
+        padding-top: 150px;
+        padding-bottom: 20px;
+        font-size: 55px;
+        color: darkgreen;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    .Title span {
+        color: white;
+    }
+}
+
+body.company-logged header {
+    padding: 0 35px; /* menos padding horizontal */
+}
+
+body.company-logged .logo img {
+    height: 90px; /* reduz logo para dar espaço */
+}
+
+body.company-logged .nav-links {
+    gap: 150px; /* reduz espaçamento entre itens do menu */
+    align-items: center;
+}
+
+/* em telas menores, permite quebra de linha para evitar apertamento */
+@media (max-width: 900px) {
+    body.company-logged .nav-links {
+        gap: 24px;
+        flex-wrap: wrap;
+    }
+    body.company-logged header nav {
+        align-items: flex-start;
+        padding-top: 10px;
+    }
+}
