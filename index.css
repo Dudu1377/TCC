@@ -908,7 +908,6 @@ section {
         display: inline-block;
         vertical-align: top;
     }
-
     @media (max-width: 900px) {
 
         .container-map1,
@@ -976,6 +975,25 @@ section {
     .Title span {
         color: white;
     }
+
+    .container-map1 h3,
+    .container-map2 h3 {
+    background: rgba(17,122,75,0.08); /* tom verde suave por trás */
+    color: #0b3a2b;
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 18px;
+    margin: 0 0 10px 0;
+    box-shadow: 0 6px 18px rgba(8,38,26,0.16);
+    border: 1px solid rgba(17,122,75,1);
+    line-height: 1.4;
+    }
+    .container-map1,
+    .container-map2 {
+    padding-top: 40px;
+    text-align: center;
+}
 }
 
 .Us {

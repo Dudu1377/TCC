@@ -274,7 +274,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const openDonationBtn = document.getElementById('openDonationBtn');
     const containerDonation = document.querySelector('.containerDonation');
     const closeButtons = document.querySelectorAll('.close-donation-pop-up');
-    const firstSection = document.querySelector('#DonorSelection');
+    const firstSection = document.querySelector('#donationCompanyInfo');
     const formSections = document.querySelectorAll('.form-section');
     const nextButtons = document.querySelectorAll('.NextButton');
     const prevButtons = document.querySelectorAll('.PrevButton');
@@ -362,7 +362,7 @@ async function sendDonation(e) {
         };
         const ref = await firebase.firestore().collection('donations').add(data);
         hideLoading();
-        alert('Obrigado por sua doação! Entraremos em contato em breve.');
+        alert('Obrigado por sua doação! Vidas foram salvas!');
         console.log('Donation saved:', ref.id, data);
 
         if (foodTypeEl) foodTypeEl.value = '';
@@ -402,7 +402,7 @@ function renderCompanyDonationsSnapshot(snapshot) {
 
     let html = '<table class="company-donations-table" style="width:90%;border-collapse:collapse;margin:auto;">' +
         '<thead><tr style="text-align:left;border-bottom:1px solid #ccc;padding:8px;">' +
-        '<th>Estabelecimento</th><th>Alimento</th><th>Quantidade (Kg)</th><th>Tipo do Doador</th><th>Contato</th><th>Data</th></tr></thead><tbody>';
+        '<th>Doador</th><th>Alimento</th><th>Quantidade (Kg)</th><th>Tipo do Doador</th><th>Contato</th><th>Data</th></tr></thead><tbody>';
 
     snapshot.forEach(doc => {
         const d = doc.data();
@@ -447,9 +447,7 @@ function loadCompanyDonations() {
         });
 }
 
-// ...existing code...
 
-// Substituir/atualizar o trecho dentro do onAuthStateChanged para chamar loadCompanyDonations/clearCompanyDonations
 document.addEventListener("DOMContentLoaded", () => {
     const loginIcon = document.getElementById('LoginImage');
     firebase.auth().onAuthStateChanged((user) => {
@@ -493,5 +491,9 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById('CompanyDonations').style.display = 'none';
             clearCompanyDonations();
         }
+        const openDonationBtnEl = document.getElementById('openDonationBtn');
+    if (openDonationBtnEl) {
+        openDonationBtnEl.style.display = user ? 'block' : 'none';
+    }
     });
 });

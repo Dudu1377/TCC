@@ -34,7 +34,7 @@
                 <li><a href="#Why">Why ?</a></li>
                 <li><a href="#Where">Locations</a></li>
                 <li><a href="#Us">About us</a></li>
-                <li id="companyDonationsMenu" style="display:none;"><a href="#CompanyDonations">Doações Empresas</a></li>
+                <li id="companyDonationsMenu" style="display:none;"><a href="#CompanyDonations">Doações</a></li>
             </ul>
             <div class="Login">
                 <img src="./Img/Login sem fundo.png" alt="Login" id="LoginImage">
@@ -194,29 +194,14 @@
             </ul>
         </div>
     </section>
-    <button id="openDonationBtn">Seja a mudança</button>
+    <button id="openDonationBtn" style="display: none;">Seja a mudança</button>
     <div class="containerDonation">
         <section id="Donation">
-            <div id="DonorSelection" class="form-section active">
-                <form>
-                    <h1>SELECIONE O TIPO DE DOADOR</h1>
-                    <div class="close-donation-pop-up">&times;</div>
-                    <label>
-                        <input type="radio" name="donorType" value="Independent">
-                        Doador Independente
-                    </label>
-                    <label>
-                        <input type="radio" name="donorType" value="Company">
-                        Empresa
-                    </label>
-                    <button type="button" class="NextButton" data-next="donationCompanyInfo">Próximo</button>
-                </form>
-            </div>
             <div id="donationCompanyInfo" class="form-section">
                 <form>
                     <div class="close-donation-pop-up">&times;</div>
-                    <h2>INFORMAÇÕES BASICAS DO ESTABELECIMENTO</h2>
-                    <label for="establishmentName">Nome do estabelecimento:</label>
+                    <h2>INFORMAÇÕES BASICAS PARA DOAÇÃO</h2>
+                    <label for="establishmentName">Nome do Doador / Estabelecimento:</label>
                     <input type="text" id="establishmentName" name="establishmentName" required>
 
                     <label for="CNPJ">CNPJ:</label>
@@ -229,11 +214,10 @@
                     <label for="phone">Telefone para contato:</label>
                     <input type="text" id="phone" placeholder="(00) 0000000-0000" name="phone" required>
 
-                    <label for="email">Email corporativo:</label>
+                    <label for="email">Email:</label>
                     <input type="text" id="establishmentEmail" placeholder="email@exemplo.com" name="email" required>
 
                     <button type="button" class="NextButton" data-next="donationCompanyInfo2">Próximo</button>
-                    <button type="button" class="PrevButton" data-prev="DonorSelection">Voltar</button>
                 </form>
             </div>
             <div id="donationCompanyInfo2" class="form-section">
